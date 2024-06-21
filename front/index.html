@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+
+    <!-- link de iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Vet-Pet</title>
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Vet-Pet</a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">
+                            <i class='bx bx-home nav__icon'></i>
+                            <span class="nav__name">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#contacto" class="nav__link">
+                            <i class='bx bx-envelope nav__icon'></i>
+                            <span class="nav__name">Contacto</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="./templates/index_producto_y_servicio.html" class="nav__link">
+                            <i class='bx bx-cart nav__icon' ></i>
+                            <span class="nav__name">Productos y servicios
+                        </span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="./templates/tabla_productos.html" class="nav__link">
+                            <i class='bx bx-edit nav__icon'></i>
+                            <span class="nav__name">Dashboard</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <img src="./img/pet-house.png" alt="" class="nav__img">
+        </nav>
+    </header>
+    <main>
+        <!-- HOME -->
+        <section  id="home">
+            <h2 class="section__title">Home</h2>
+        </section>
+
+        <!-- Nosotros -->
+        <section class="container section section__height" id="nosotros">
+            <h2 class="section__title">Nosotros</h2>
+        </section>
+
+        <!-- Contacto -->
+        <section class="container section section__height" id="contacto">
+            <h2 class="section__title">Contacto</h2>
+        </section>
+        
+    </main>
+    <footer class="footer">
+        <img src="./img/pet-house.png" alt="">
+        <p class="text">Vet-Pet Copyright © 2024. Todos los derechos reservados</p>
+    </footer>
+
+    
+    <script src="./js/main.js"></script>
+    <script src="./js/pages.js"></script>
+    <script src="./js/form-validation.js"></script>
+</body>
+</html>

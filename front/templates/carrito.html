@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <!-- link de iconos -->
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!--Estilos-->
+    <link rel="stylesheet" href="../css/productos.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <section class="container" id="producto">
+
+    <!--Contenedor-->
+        <div class="wrapper wrapper_carrito container section section__height">
+            <!-- Zona menu producto para diferentes dispositivos-->
+            <div class= "wrapper wrapper_carrito section">
+                <header class="header-medias_queries">
+                    <h1 class="logo">Productos</h1>
+                    <button class="open-menu-productos" id="open-menu-productos">
+                        <span class="material-symbols-outlined">
+                            arrow_back_ios
+                        </span>
+        
+                    </button>
+                </header>
+            </div>
+        <!--  ** ******  * * * *       *****-->   
+            
+            <aside class="aside_carrito aside-visible "> <!--Es para que se muestre a la izquierda-->
+                <button class="close-menu-productos" id="close-menu-productos">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </button>            
+                
+                <nav>
+                    <ul>
+                        <!--Se utilizaron iconos de google fonts-->
+                        <li><a class="boton-menu boton-volver" href="./index_producto_y_servicio.html"><span
+                                    class="material-symbols-outlined">
+                                    keyboard_return
+                                </span>Volver a compras</a>
+                        </li>
+                        <li><a class="boton-menu boton-carrito active" href="./carrito.html"><span
+                                    class="material-symbols-outlined">
+                                    shopping_cart
+                                </span>Carrito</a>
+                        </li>
+                    </ul>
+
+                </nav>
+                <!--<Footer>
+                    <p class="texto-footer">© 2024 Vet Pet</p>
+
+                </Footer>-->
+            </aside>
+            <main class="main_carrito "> <!--Se va a mostrar a la derecha-->
+                <h2 class="titulo-principal heading">Carrito</h2>
+
+                <div class="contenedor-carrito-compras">
+
+                    <p id="carrito-vacio" class="carrito-vacio">Tú carrito está vacío (┬┬﹏┬┬)</p>
+
+                    <div id="carrito-productos" class="carrito-productos  disabled"> <!--Productos en el carrito-->
+
+                        <!-- Esta parte se va a completar con el script -->
+
+                    </div>
+
+                    
+                    <!-- Acciones para el carrito-->
+
+                    <div id="carrito-acciones" class="carrito-acciones disabled">
+
+                        <div class="carrito-acciones-izquierda">
+                            <button id="carrito-acciones-vaciar" class="carrito-acciones-vaciar">Vaciar carrito</button>
+                        </div>
+
+                        <div class="carrito-acciones-derecha">
+                            <div class="carrito-acciones-total">
+                                <p>Total:</p>
+                                <p id="total">$ 29000</p>
+                            </div>
+
+                            <button id="carrito-acciones-comprar" class="carrito-acciones-comprar">Comprar ahora</button>
+
+                        </div>
+                    </div>
+
+                    <p id="carrito-comprado" class="carrito-comprado disabled">Muchas gracias por tu compra!!, lo esperamos
+                        nuevamente <span class="material-symbols-outlined">
+                            sentiment_very_satisfied
+                        </span></p>
+
+                </div>
+
+
+
+
+            </main>
+
+
+        </div>
+    </section>
+    <!-- Script header-->
+
+    <!--<script src="./static/js/header.js"></script>-->
+    <script src="../js/menu_producto.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/carrito.js"></script>
+</body>
+
+</html>

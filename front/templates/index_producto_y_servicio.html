@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link de iconos -->
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="../css/productos.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Vet-Pet</title>
+</head>
+<body>
+    <!--Contenedor-->
+    <section class="container section section__height" id="producto">
+        <!-- Zona menu producto para diferentes dispositivos-->
+        <div class= "wrapper">
+            <header class="header-medias_queries">
+                <h1 class="logo">Productos</h1>
+                <button class="open-menu-productos" id="open-menu-productos">
+                    <span class="material-symbols-outlined">
+                        arrow_back_ios
+                    </span>
+
+                </button>
+            </header>
+
+        <!--  ** ******  * * * *       *****-->    
+            
+            <aside class="aside aside-visible" id="aside"> <!--Es para que se muestre a la izquierda-->
+                <button class="close-menu-productos" id="close-menu-productos">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </button>
+            <!--<header >
+                    <h1 class="logo">Productos</h1>
+                    
+                </header>--> 
+                
+                <nav>
+                    <ul class="menu">
+                        <!--Se utilizaron iconos de google fonts-->
+                    <li><button id="todos" class= "boton-menu boton-categoria active"><span class="material-symbols-outlined">
+                        pan_tool
+                        </span></i>Todos los productos</button></li>
+
+                    <li><button id="laboratorio" class= "boton-menu boton-categoria"><span class="material-symbols-outlined">
+                        experiment
+                        </span>Laboratorio</button></li>
+
+                    <li><button id="alimentos" class= "boton-menu boton-categoria"><span class="material-symbols-outlined">
+                        food_bank
+                        </span>Alimentos</button></li>
+
+                    <li><button id="articulos_varios" class= "boton-menu boton-categoria"><span class="material-symbols-outlined">
+                        article
+                        </span>Articulos varios</button></li>  
+                    <li>
+                        <a class="boton-menu boton-carrito" href="./carrito.html"><span class="material-symbols-outlined">
+                        shopping_cart
+                        </span >Carrito</span><span id="numerito" class="numerito">0</span>
+                    </a>
+                    </li>
+                    </ul>
+
+                </nav>
+                
+            </aside>
+            <main class="wrapper_derecho"> <!--Se va a mostrar a la derecha-->
+                <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
+                <div id="contenedor-productos" class="contenedor-productos">
+                    
+                    <!--Esta sección se va a cargar con el script-->
+                    
+                </div>
+
+            </main> 
+
+
+        </div>
+    </section>
+    <!-- Script -->
+
+    <script src="../js/img_productos.js"></script>
+    <script src="../js/menu_producto.js"></script>
+    <script src="../js/header.js"></script>
+    <!--<script src="../static/js/desplegable.js"> </script>-->
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

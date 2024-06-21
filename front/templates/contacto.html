@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Vet-Pet</title>
+</head>
+<body>
+    <section class="section-form">
+        <div class="container-form">
+            <div class="left">
+                <h3 class="heading">Envienos su consulta</h3>
+                <p class="text">Estamos para ayudarlo</p>
+                <form action="#" method="POST">
+                    <div class="inputBox">
+                        <input type="text" name="name" class="name" placeholder="Ingrese su nombre">
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="email" class="email" placeholder="Ingrese su email">
+                    </div>
+                    <div class="inputBox">
+                        <textarea name="message"  class="message" placeholder="Ingrese su consulta ..."></textarea>
+                    </div>
+
+                    <div class="checkBox inputBox">
+                        <p class="text">¿Es tu primera vez con nosotros?</p>
+                        <input type="radio" name="options" id="checkbox1" class="options">
+                        <label for="checkbox1">Si</label>
+                        <input type="radio" name="options" id="checkbox2" class="options">
+                        <label for="checkbox2">No</label>
+                    </div>
+                    <div class="inputBox">
+                        <p class="text">¿Que mascota tenes?</p>
+                        <div class="select">
+                            <select name="format" id="mascotaSelect">
+                                <option value="" selected disable>Elija su mascota</option>
+                                <option value="perro">Perro</option>
+                                <option value="gato">Gato</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn" id="btn">Enviar</button>
+                </form>
+            </div>
+            <div class="right">
+                <div class="ilustration">
+                    <img src="./img/jackrussel.jpg" alt="jack-russel">
+                </div>
+                <div class="contact-info">
+                    <div class="infoBox">
+                        <div class="form-icon">
+                            <i class='bx bxs-map'></i>
+                        </div>
+                        <div class="text">
+                            <a href="https://www.google.com.ar/maps/place/Honduras,+Cdad.+Aut%C3%B3noma+de+Buenos+Aires/@-34.5905434,-58.4316947,15.39z/data=!4m6!3m5!1s0x95bcb58617e15ee3:0x19a1659c7a5ea1d9!8m2!3d-34.5888397!4d-58.4299123!16s%2Fg%2F1tcx___l?entry=ttu">1578 Honduras, CABA, Argentina</a>
+                        </div>
+                    </div>
+                    <div class="infoBox">
+                        <div class="form-icon">
+                            <i class='bx bxs-phone'></i>
+                        </div>
+                        <div class="text">
+                            <a href="tel:+12 3456 7890">+12 3456 7890</a>
+                        </div>
+                    </div>
+                    <div class="infoBox">
+                        <div class="form-icon">
+                            <i class='bx bxl-gmail' ></i>
+                        </div>
+                        <div class="text">
+                            <a href="mailto:Vet-Pet@gmail.com">Vet-Pet@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="https://es-la.facebook.com/">
+                    <i class='bx bxl-facebook-circle' name="logo-facebook"></i>
+                </a>
+                <a href="https://x.com/">
+                    <i class='bx bxl-twitter' name="logo-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/">
+                    <i class='bx bxl-linkedin-square' name="logo-linkedin"></i>
+                </a>
+            </div>
+            <div class="container-popup">
+                <div class="popup" id="popup">
+                    <img src="../static/img/checkmark.png" alt="">
+                    <h1>Muchas gracias</h1>
+                    <p>Tu consulta a sido enviada.</p>
+                    <button type="button" id="btnPopup" onclick="closePopup()">OK</button>
+                </div>
+            </div>
+        </div>
+    </section>
+<script src="../js/form-validation.js"></script>
+
+</body>
+</html>
