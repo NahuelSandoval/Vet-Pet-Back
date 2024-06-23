@@ -1,9 +1,43 @@
 
 /* Array para las imagenes de los productos*/
 
+const app = {
+    url: "http://127.0.0.1:5000/productos",
+    productosArray: [],
+  
+    init() {
+      this.fetchData(this.url);
+    },
+  
+    fetchData(url) {
+      fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          this.productosArray = data; // Almacena los productos obtenidos en el array
+          this.renderProductos(); // Llama a la función para renderizar los productos
+        })
+        .catch(err => {
+          console.error('Error fetching data:', err);
+        });
+    },
+  
+    renderProductos() {
+      // Simplemente imprime los productos en la consola para este ejemplo
+      cargarProductos(this.productosArray);
+    }
+    
+  };
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    app.init();
+  });
 
-
-const productosArray = [
+const productosArra = [
 
 
     /**Categoría alimentos**/
@@ -298,10 +332,11 @@ function cargarProductos(productosCategorias) {
         const div = document.createElement("div");
         div.classList.add("producto");
         div.innerHTML = `
-            <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
+            <img class="producto-imagen" src="${producto.imagen}" alt="${producto.nombre}">
             <div class="producto-detalle">
-                <h3 class="producto-titulo">${producto.titulo}</h3>
+                <h3 class="producto-titulo">${producto.nombre}</h3>
                 <p class="producto-precio">$ ${producto.precio}</p>
+                <p class="producto-stock"> Stock: ${producto.stock}</p>
                 <button class="producto-agregar" id="${producto.id}">Agregar</button>
             </div>`
             ;
@@ -314,7 +349,7 @@ function cargarProductos(productosCategorias) {
 
 
 
-cargarProductos(productosArray);
+cargarProductos(app.productosArray);
 
 botonesCategorias.forEach(boton => {
 
@@ -327,10 +362,10 @@ botonesCategorias.forEach(boton => {
         if (e.currentTarget.id != "todos") {
 
             /** filtro por categoría ***/
-            const productosCategorias = productosArray.find(producto => producto.categoria.id === e.currentTarget.id)
+            const productosCategorias = app.productosArray.find(producto => producto.categoria.id === e.currentTarget.id)
             tituloPrincipal.innerText = productosCategorias.categoria.nombre;
 
-            const productosBoton = productosArray.filter(producto => producto.categoria.id === e.currentTarget.id);
+            const productosBoton = app.productosArray.filter(producto => producto.categoria.id === e.currentTarget.id);
 
             /* console.log("funcionando")*/
 
@@ -339,7 +374,7 @@ botonesCategorias.forEach(boton => {
         } else {
 
             tituloPrincipal.innerText = "Todos los productos";
-            cargarProductos(productosArray);
+            cargarProductos(app.productosArray);
         }
 
 
@@ -391,7 +426,7 @@ function agregarAlcarrito(e) {
     const idBotonCarrito = e.currentTarget.id;
     /*console.log(idBotonCarrito);*/
 
-    const productosAgregadosCarrito = productosArray.find(producto => producto.id === idBotonCarrito);
+    const productosAgregadosCarrito = app.productosArray.find(producto => producto.id === idBotonCarrito);
 
    
     /**Agrego un condicional */
@@ -428,3 +463,4 @@ function actualizarNumerito(){
 
     console.log(numerito);
 }
+

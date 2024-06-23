@@ -1,12 +1,5 @@
-*{
-    margin: 0%;
-    padding: 0%;
-    
-}
 
 .container-productos{
-    background: radial-gradient(circle, #ffcccc, #ff9999);
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,7 +22,7 @@ table {
 th, td {
     border: 0.1vw solid #dddddd;
     padding: 0.8vw;
-    text-align: left;
+    text-align: center;
     color: #dddddd;
     
   }
@@ -68,36 +61,38 @@ a:hover{
 
 }
 
-button{
+.boton-delete{
     
-    margin-right: 2vh;
+/*     margin-right: 2vh; */ 
     background-color: red; /* Color de fondo */
     color: white; /* Color del texto */
-    padding: 0.5vw 3vh; /* Relleno interno */
+    padding: 0.5vw 1.5vh; /* Relleno interno */
     border: none; /* Quita el borde */
-    border-radius: 2vw; /* Borde redondeado */
+    border-radius: 10px; /* Borde redondeado */
     text-align: center; /* Alineación del texto */
     text-decoration: none; /* Quita el subrayado predeterminado */
     display: inline-block; /* Mostrar como bloque en línea */
-    font-size: 1vw; /* Tamaño de fuente */
+    font-size: 2vw; /* Tamaño de fuente */
     cursor: pointer; /* Cambia el cursor al pasar el ratón */
     
 }
 
-.boton{
+.boton-edit{
     
     color: #f2f2f2;
-    margin-right: 2vh;
-    background-color: #4CAF50; /* Color de fondo */
+    margin: auto;
+    background-color: #5046df; /* Color de fondo */
     color: white; /* Color del texto */
-    padding: 0.5vw 3vh; /* Relleno interno */
+    padding: 0.5vw 1.5vh; /* Relleno interno */
     border: none; /* Quita el borde */
-    border-radius: 2vw; /* Borde redondeado */
+    border-radius: 10px; /* Borde redondeado */
     text-align: center; /* Alineación del texto */
     text-decoration: none; /* Quita el subrayado predeterminado */
-    display: inline-block; /* Mostrar como bloque en línea */
-    font-size: 1vw; /* Tamaño de fuente */
+    display: inline-block;
+    justify-content: center; /* Mostrar como bloque en línea */
+    font-size: 2vw; /* Tamaño de fuente */
     cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    justify-content: center;
 }
 
 .nuevo{

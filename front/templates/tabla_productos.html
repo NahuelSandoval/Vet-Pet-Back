@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/tabla_productos.css">
     <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
@@ -15,7 +15,7 @@
 
     <main>
 
-        <section class="container-productos" id="dashboard">
+        <section class="container-productos container section section__height" id="dashboard">
             <div id="app" >
 
                 <!-- Botón Nuevo -->
@@ -40,7 +40,6 @@
                                         <th>Stock</th>
                                         <th>Imagen</th>
                                         <th>Acciones</th>
-                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,11 +53,10 @@
                                             <img :src="producto.imagen" alt="">
                                         </td>
                                         <td>
-                                            <button type="button"  v-on:click="eliminar(producto.id)">Eliminar</button>
+                                            <a class="boton-delete" v-on:click="eliminar(producto.id)"><i class='bx bx-trash'></i></a>
+                                            <a class="boton-edit" :href="'editar_producto.html?id='+ producto.id+'&nombre=' +producto.nombre+ '&precio='+producto.precio+'&stock='+producto.stock +  '&imagen='+producto.imagen"><i class='bx bx-edit'></i></a>
                                         </td>
-                                        <td>
-                                            <a class="boton" :href="'editar_producto.html?id='+ producto.id+'&nombre=' +producto.nombre+ '&precio='+producto.precio+'&stock='+producto.stock +  '&imagen='+producto.imagen">Editar</a>
-                                        </td>
+
                                     </tr>
                                 </tbody>
                             </table>
