@@ -10,7 +10,7 @@ const productosArray = [
     {
         id: "alimento-01",
         titulo: "Alimento 01",
-        imagen: "../front/img/Alimentos/alimento.jpg",
+        imagen: "./img/Alimentos/alimento.jpg",
         categoria: {
 
             nombre: "Alimentos",
