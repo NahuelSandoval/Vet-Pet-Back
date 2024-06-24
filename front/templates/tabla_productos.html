@@ -52,11 +52,11 @@
                                         <td>{{producto.stock}}</td>
                                         <td>{{producto.categoria}}</td>
                                         <td>
-                                            <img :src="producto.imagen" alt="producto.imagen">
+                                            <img :src="producto.imagen" alt="">
                                         </td>
                                         <td>
                                             <a class="boton-delete" v-on:click="eliminar(producto.id)"><i class='bx bx-trash'></i></a>
-                                            <a class="boton-edit" :href="'editar_producto.html?id='+ producto.id+'&nombre=' +producto.nombre+ '&precio='+producto.precio+'&stock='+producto.stock +  '&imagen='+producto.imagen"><i class='bx bx-edit'></i></a>
+                                            <a class="boton-edit" :href="'editar_producto.html?id='+ producto.id+'&nombre=' +producto.nombre+ '&precio='+producto.precio+'&stock='+producto.stock + '&imagen='+producto.imagen +  '&categoria='+producto.categoria"><i class='bx bx-edit'></i></a>
                                         </td>
 
                                     </tr>

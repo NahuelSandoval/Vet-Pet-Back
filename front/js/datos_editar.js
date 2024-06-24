@@ -18,6 +18,7 @@ for (const [nombre, valor] of datos) {
     resultado[precio] = valor;
     resultado[stock] = valor
     resultado[imagen] = valor
+    resultado[categoria] = valor
 }
 
 // Imprimir el resultado
@@ -30,3 +31,4 @@ document.getElementById("nombre").value = resultado["nombre"]
 document.getElementById("precio").value = resultado["precio"]
 document.getElementById("stock").value = resultado["stock"]
 document.getElementById("imagen").value = resultado["imagen"]
+document.getElementById("categoria").value = resultado["categoria"]
