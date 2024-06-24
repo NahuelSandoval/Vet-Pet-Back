@@ -14,13 +14,13 @@
         <section>
             <div class="container-form">
                 <form>
-                    <div>
+                    <div class="entrada">
                         <label for="id">ID</label>
                         <input type="number" name="id" id="id" disabled>
                     </div>
             
-                    <div>
-                        <label for="nombre">Nombre</label>
+                    <div class="entrada">
+                        <label for="nombre">Nombre:</label>
                         <input type="text" name="nombre" id="nombre">
                     </div>
 
@@ -39,8 +39,20 @@
                         <input type="text" name="imagen" id="imagen">
                     </div>
 
-                    
+                    <div class="entrada">
+                        <p class="text">Elija categoria</p>
+                        <div class="">
+                            <select name="categoria" id="categoria">
+                                <option value="" selected disable>Elija categoria</option>
+                                <option value="Alimento">Alimento</option>
+                                <option value="Laboratorio">Laboratorio</option>
+                                <option value="Articulos varios">Articulos varios</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <button class="modificar" type="button" onclick="modificar()">Modificar</button>
+                    <a href="tabla_productos.html" class="modificar" type="button" >Volver</a>
                 </form>
             </div>
         </section>

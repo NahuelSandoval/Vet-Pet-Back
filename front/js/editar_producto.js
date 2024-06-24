@@ -4,12 +4,15 @@ function modificar() {
     let precio_ingresado = document.getElementById("precio").value 
     let stock_ingresado = document.getElementById("stock").value 
     let imagen_ingresada = document.getElementById("imagen").value 
+    let categoria_ingresada = document.getElementById("categoria").value 
+
 
     let datos = {
         nombre: nombre_ingresado,
         precio:precio_ingresado,
         stock:stock_ingresado,
-        imagen:imagen_ingresada
+        imagen:imagen_ingresada,
+        categoria:categoria_ingresada
     }
 
     console.log(datos);

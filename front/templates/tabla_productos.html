@@ -38,6 +38,7 @@
                                         <th>Nombre</th>
                                         <th>Precio</th>
                                         <th>Stock</th>
+                                        <th>Categoria</th>
                                         <th>Imagen</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -49,8 +50,9 @@
                                         <td>{{producto.nombre}}</td>
                                         <td>{{producto.precio}}</td>
                                         <td>{{producto.stock}}</td>
+                                        <td>{{producto.categoria}}</td>
                                         <td>
-                                            <img :src="producto.imagen" alt="">
+                                            <img :src="producto.imagen" alt="producto.imagen">
                                         </td>
                                         <td>
                                             <a class="boton-delete" v-on:click="eliminar(producto.id)"><i class='bx bx-trash'></i></a>
