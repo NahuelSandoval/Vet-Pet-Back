@@ -10,7 +10,7 @@ const productosArray = [
     {
         id: "alimento-01",
         titulo: "Alimento 01",
-        imagen: "../static/img/Alimentos/alimento.jpg",
+        imagen: "../img/Alimentos/alimento.jpg",
         categoria: {
 
             nombre: "Alimentos",
@@ -24,7 +24,7 @@ const productosArray = [
     {
         id: "alimento-02",
         titulo: "Alimento 02",
-        imagen: "../static/img/Alimentos/images3.jpg",
+        imagen: "../img/Alimentos/images3.jpg",
         categoria: {
 
             nombre: "Alimentos",
@@ -37,7 +37,7 @@ const productosArray = [
     {
         id: "alimento-03",
         titulo: "Alimento 03",
-        imagen: "../static/img/Alimentos/images4.jpg",
+        imagen: "../img/Alimentos/images4.jpg",
         categoria: {
 
             nombre: "Alimentos",
@@ -50,7 +50,7 @@ const productosArray = [
     {
         id: "alimento-04",
         titulo: "Alimento 04",
-        imagen: "../static/img/Alimentos/Sin título3.jpg",
+        imagen: "../img/Alimentos/Sin título3.jpg",
         categoria: {
 
             nombre: "Alimentos",
@@ -67,7 +67,7 @@ const productosArray = [
     {
         id: "laboratorio-01",
         titulo: "Laboratorio 01",
-        imagen: "../static/img/Laboratorio/images.jpg",
+        imagen: "../img/Laboratorio/images.jpg",
         categoria: {
 
             nombre: "Laboratorio",
@@ -81,7 +81,7 @@ const productosArray = [
     {
         id: "laboratorio-02",
         titulo: "Laboratorio 02",
-        imagen: "../static/img/Laboratorio/images5.jpg",
+        imagen: "../img/Laboratorio/images5.jpg",
         categoria: {
 
             nombre: "Laboratorio",
@@ -94,7 +94,7 @@ const productosArray = [
     {
         id: "laboratorio-03",
         titulo: "Laboratorio 03",
-        imagen: "../static/img/Laboratorio/images6.jpg",
+        imagen: "../img/Laboratorio/images6.jpg",
         categoria: {
 
             nombre: "Laboratorio",
@@ -107,7 +107,7 @@ const productosArray = [
     {
         id: "laboratorio-04",
         titulo: "Laboratorio 04",
-        imagen: "../static/img/Laboratorio/images8.jpg",
+        imagen: "../img/Laboratorio/images8.jpg",
         categoria: {
 
             nombre: "Laboratorio",
@@ -120,7 +120,7 @@ const productosArray = [
     {
         id: "laboratorio-05",
         titulo: "Laboratorio 05",
-        imagen: "../static/img/Laboratorio/labyes-trihepat_2020ARG_FrascoBlanco.jpg",
+        imagen: "../img/Laboratorio/labyes-trihepat_2020ARG_FrascoBlanco.jpg",
         categoria: {
 
             nombre: "Laboratorio",
@@ -134,7 +134,7 @@ const productosArray = [
     {
         id: "laboratorio-06",
         titulo: "Laboratorio 06",
-        imagen: "../static/img/Laboratorio/pack-azitromicina.jpg",
+        imagen: "../img/Laboratorio/pack-azitromicina.jpg",
 
         categoria: {
             nombre: "Laboratorio",
@@ -148,7 +148,7 @@ const productosArray = [
     {
         id: "laboratorio-07",
         titulo: "Laboratorio 07",
-        imagen: "../static/img/Laboratorio/pack-GrupoC72dpi-WEB.jpg",
+        imagen: "../img/Laboratorio/pack-GrupoC72dpi-WEB.jpg",
 
         categoria: {
             nombre: "Laboratorio",
@@ -162,7 +162,7 @@ const productosArray = [
     {
         id: "laboratorio-08",
         titulo: "Laboratorio 08",
-        imagen: "../static/img/Laboratorio/pack-labyderm-skin-soldier.jpg",
+        imagen: "../img/Laboratorio/pack-labyderm-skin-soldier.jpg",
 
         categoria: {
             nombre: "Laboratorio",
@@ -176,7 +176,7 @@ const productosArray = [
     {
         id: "laboratorio-09",
         titulo: "Laboratorio 09",
-        imagen: "../static/img/Laboratorio/pack-ocubiotic-se-global.jpg",
+        imagen: "../img/Laboratorio/pack-ocubiotic-se-global.jpg",
 
         categoria: {
             nombre: "Laboratorio",
@@ -190,7 +190,7 @@ const productosArray = [
     {
         id: "laboratorio-10",
         titulo: "Laboratorio 10",
-        imagen: "../static/img/Laboratorio/Sin título.jpg",
+        imagen: "../img/Laboratorio/Sin título.jpg",
 
         categoria: {
             nombre: "Laboratorio",
@@ -204,7 +204,7 @@ const productosArray = [
     {
         id: "laboratorio-11",
         titulo: "Laboratorio 11",
-        imagen: "../static/img/Laboratorio/Sin título2.jpg",
+        imagen: "../img/Laboratorio/Sin título2.jpg",
 
         categoria: {
             nombre: "Laboratorio",
@@ -221,7 +221,7 @@ const productosArray = [
     {
         id: "articulo-vario-01",
         titulo: "Articulo vario 01",
-        imagen: "../static/img/Articulos varios/juego.jpg",
+        imagen: "../img/Articulos varios/juego.jpg",
 
         categoria: {
             nombre: "Artículos varios",
@@ -235,7 +235,7 @@ const productosArray = [
     {
         id: "articulo-vario-02",
         titulo: "Articulo vario 02",
-        imagen: "../static/img/Articulos varios/kennel.jpg",
+        imagen: "../img/Articulos varios/kennel.jpg",
 
         categoria: {
             nombre: "Artículos varios",
@@ -249,7 +249,7 @@ const productosArray = [
     {
         id: "articulo-vario-03",
         titulo: "Articulo vario 03",
-        imagen: "../static/img/Articulos varios/para paseo.jpg",
+        imagen: "../img/Articulos varios/para paseo.jpg",
 
         categoria: {
             nombre: "Artículos varios",
@@ -264,7 +264,7 @@ const productosArray = [
     {
         id: "articulo-vario-04",
         titulo: "Articulo vario 04",
-        imagen: "../static/img/Articulos varios/Peine.jpg",
+        imagen: "../img/Articulos varios/Peine.jpg",
 
         categoria: {
             nombre: "Artículos varios",
