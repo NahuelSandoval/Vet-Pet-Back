@@ -27,63 +27,80 @@
                         <p>Cargando .....</p>
 
                     </section>
-
                     <section v-else>
-                        
-                        <div >
-                            <table class="tabla">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nombre</th>
-                                        <th>Precio</th>
-                                        <th>Stock</th>
-                                        <th>Categoria</th>
-                                        <th>Imagen</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                
-                                    <tr v-for="producto in productos">
-                                        <td >{{producto.id}}</td>
-                                        <td>{{producto.nombre}}</td>
-                                        <td>{{producto.precio}}</td>
-                                        <td>{{producto.stock}}</td>
-                                        <td>{{producto.categoria}}</td>
-                                        <td>
-                                            <img :src="producto.imagen" alt="">
-                                        </td>
-                                        <td>
-                                            <a class="boton-delete" onclick="openPopup()"><i class='bx bx-trash'></i></a>
-                                            <!-- <a class="boton-delete" v-on:click="eliminar(producto.id)"><i class='bx bx-trash'></i></a> -->
-                                            <a class="boton-edit" :href="'editar_producto.html?id='+ producto.id+'&nombre=' +producto.nombre+ '&precio='+producto.precio+'&stock='+producto.stock + '&imagen='+producto.imagen +  '&categoria='+producto.categoria"><i class='bx bx-edit'></i></a>
-                                        
-                                        </td>
-                                        
-                                        
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="container-popup">
-                            <div class="popup" id="popup">
-                                <img src="../img/checkmark.png" id="popup-img" alt="">
-                                <h1 class="popup-title">1</h1>
-                                <p class="popup-message">2</p>
-                                <button type="button" id="btnPopup" onclick="closePopup()">OK</button>
-                                <a class="boton-delete" v-on:click="eliminar(producto.id)"><i class='bx bx-trash'></i></a>
+                        <div class="table" >
+                            <div class="table_header">
+                                <p>Producto detalles</p>
+                                <div>
+                                    <input placeholder="producto"/>
+                                    <button class="add_new">+ Add New</button>
+                                </div>
+                            </div>
+                            <div class="table_section">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Producto</th>
+                                            <th>Precio</th>
+                                            <th>Stock</th>
+                                            <th>Categoria</th>
+                                            <th>Imagen</th>
+                                            <th>Acciones</th>>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="producto in productos">
+                                            <td>{{producto.id}}</td>
+                                            <td>{{producto.nombre}}</td>
+                                            <td>{{producto.precio}}</td>
+                                            <td>{{producto.stock}}</td>
+                                            <td>{{producto.categoria}}</td>
+                                            <td>
+                                                <img :src="producto.imagen" alt="">
+                                            </td>
+                                            <td>
+                                                <a class="boton-delete" onclick="openPopup()"><i class='bx bx-trash'></i></a>
+                                                <!-- <a class="boton-delete" v-on:click="eliminar(producto.id)"><i class='bx bx-trash'></i></a> -->
+                                                <a class="boton-edit" :href="'editar_producto.html?id='+ producto.id+'&nombre=' +producto.nombre+ '&precio='+producto.precio+'&stock='+producto.stock + '&imagen='+producto.imagen +  '&categoria='+producto.categoria"><i class='bx bx-edit'></i></a>
+                                                <div class="container-popup">
+                                                    <div class="popup" id="popup">
+                                                        <img src="../img/checkmark.png" id="popup-img" alt="">
+                                                        <h1 class="popup-title">1</h1>
+                                                        <p class="popup-message">2</p>
+                                                        <button type="button" id="btnPopup" onclick="closePopup()">OK</button>
+                                                        <a class="boton-delete" @click="eliminar(producto.id)"><i class='bx bx-trash'></i></a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </section>
+
+                            <!-- <div class="container-popup">
+                                <div class="popup" id="popup">
+                                    <img src="../img/checkmark.png" id="popup-img" alt="">
+                                    <h1 class="popup-title">1</h1>
+                                    <p class="popup-message">2</p>
+                                    <button type="button" id="btnPopup" onclick="closePopup()">OK</button>
+                                    <a class="boton-delete" @click="eliminar(producto.id)"><i class='bx bx-trash'></i></a>
+                                </div>
+                            </div> -->
+
+                    
                 </section>
 
             </div>
         </section>
-
     </main>
 
     <footer></footer>
+
+
+
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="../js/tabla_productos.js"></script>

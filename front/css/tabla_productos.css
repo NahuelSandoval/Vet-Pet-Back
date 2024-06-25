@@ -17,7 +17,7 @@ table {
     font-family: Arial, sans-serif;
     height:auto;
     
-  }
+}
 
 th, td {
     border: 0.1vw solid #dddddd;
@@ -114,4 +114,43 @@ a:hover{
 img{
     width: 6vw;
     height: 10vh;
+}
+
+
+/* ---------------------------------------------------------*/
+.table{
+    width: 100%;
+}
+
+.table_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(240,240,240);
+}
+.table_header p{
+    color: #000000;
+}
+button{
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.add_new{
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #0298cf;
+}
+input{
+    padding: 10px 20px;
+    margin: 0 10px;
+    outline: none;
+    border: 1px solid #0298cf;
+    border-radius: 5px;
+    color: #0298cf;
+}
+::placeholder{
+    color: #0298cf;
 }
