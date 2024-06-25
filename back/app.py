@@ -1,6 +1,6 @@
 #  Importar las herramientas
 # Acceder a las herramientas para crear la app web
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 # Para manipular la DB
 from flask_sqlalchemy import SQLAlchemy 
@@ -9,7 +9,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
 # Crear la app
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../front')
 
 # permita acceder desde el frontend al backend
 CORS(app)
@@ -49,7 +49,7 @@ with app.app_context():
 # / es la ruta de inicio
 @app.route("/")
 def index():
-    return f'App Web para registrar nombres de productos'
+    return render_template('index.html')
 
 # Crear un registro en la tabla Productos
 @app.route("/registro", methods=['POST']) 

@@ -157,15 +157,15 @@ function agregarAlcarrito(e) {
     /*console.log(idBotonCarrito);*/
 
     const productosAgregadosCarrito = app.productosArray.find(producto => producto.id === idBotonCarrito);
-//-------------ESTO ES NUEVO, SI NO HAY STOCK SALTA UN ALERT AVISANDO QUE NO HAY STOCK--------------------------------------------
+//-------------ESTO ES NUEVO, SI NO HAY STOCK SALTA UN POPUP AVISANDO QUE NO HAY STOCK--------------------------------------------
     if (!productosAgregadosCarrito) {
-      alert(`Producto con ID ${idBotonCarrito} no encontrado.`);
+      openPopup(false, "Producto desconocido", `El producto con ID'${idBotonCarrito}' no se encontro.`)
       return;
     }
 
   // Verificar si hay suficiente stock
     if (productosAgregadosCarrito.stock <= 0) {
-      alert(`El producto "${productosAgregadosCarrito.nombre}" está agotado.`);
+      openPopup(false, "Producto agotado", `El producto '${productosAgregadosCarrito.nombre}' está agotado.`)
       return;
     }
 //---------Y CUANDO SE ACTIVA EL EVENTO(e) SE DESCUENTA EN MENOS 1 LA CANTIDAD EN EL STOCK-------------------------------
@@ -210,3 +210,33 @@ function actualizarNumerito(){
     console.log(numerito);
 }
 
+
+
+
+//FUNCION DE POPUP(modificada para ecomerce)
+
+function openPopup(success, title, message){
+  let popup = document.getElementById("popup");
+  let popupImg = document.getElementById("popup-img");
+  let popupTitle = popup.querySelector(".popup-title");
+  let popupMessage = popup.querySelector(".popup-message");
+  //si se edita aparece la ruta de la imagen checkmark
+  if (success) {
+      popupImg.src = "../img/checkmark.png"
+  //si es false aparece la ruta de la imagen crossmark
+  } else {
+      popupImg.src = "../img/crossmark.png"
+  }
+  //aca defino los parametros y les agrego contenido
+  popupTitle.textContent = title;
+  popupMessage.textContent = message;
+
+  popup.classList.add("open-popup");
+  //cuando se valida el form, abre el popup
+
+  let boton = document.getElementById("btnPopup");
+  boton.addEventListener("click", function() {
+      popup.classList.remove("open-popup");
+  //cuando se aprieta el aceptar cierra el popup
+  })  
+};

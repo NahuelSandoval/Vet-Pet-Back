@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/ingresar_producto.css">
     <link rel="stylesheet" href="../css/tabla_productos.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -54,6 +55,15 @@
                     <button class="modificar" type="button" onclick="modificar()">Modificar</button>
                     <a href="tabla_productos.html" class="modificar" type="button" >Volver</a>
                 </form>
+            </div>
+
+            <div class="container-popup">
+                <div class="popup" id="popup">
+                    <img src="../img/checkmark.png" id="popup-img" alt="">
+                    <h1 class="popup-title"></h1>
+                    <p class="popup-message"></p>
+                    <button type="button" id="btnPopup" onclick="closePopup()">OK</button>
+                </div>
             </div>
         </section>
     </main>

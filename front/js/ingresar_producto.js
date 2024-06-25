@@ -25,15 +25,42 @@ function guardar() {
     }
     fetch(url, options)
         .then(function () {
-            console.log("creado")
-            alert("Grabado")
-            // Devuelve el href (URL) de la página actual
-            window.location.href = "./tabla_productos.html";  
+            openPopup(true, "Producto creado", "Se creo un nuevo producto con éxito")    
             
         })
         .catch(err => {
             //this.errored = true
-            alert("Error al grabar" )
+            openPopup(false, "Error al crear", "Intente mas tarde")
             console.error(err);
         })
 }
+
+//FUNCION DE POPUP DE INGRESAR PRODUCTO.(IGUAL QUE EL EDITAR)
+
+function openPopup(success, title, message){
+    let popup = document.getElementById("popup");
+    let popupImg = document.getElementById("popup-img");
+    let popupTitle = popup.querySelector(".popup-title");
+    let popupMessage = popup.querySelector(".popup-message");
+    //si se edita aparece la ruta de la imagen checkmark
+    if (success) {
+        popupImg.src = "../img/checkmark.png"
+    //si es false aparece la ruta de la imagen crossmark
+    } else {
+        popupImg.src = "../img/crossmark.png"
+    }
+    //aca defino los parametros y les agrego contenido
+    popupTitle.textContent = title;
+    popupMessage.textContent = message;
+
+    popup.classList.add("open-popup");
+    //cuando se valida el form, abre el popup
+
+    let boton = document.getElementById("btnPopup");
+    boton.addEventListener("click", function() {
+        popup.classList.remove("open-popup");
+    //cuando se aprieta el aceptar cierra el popup
+        window.location.href = "./tabla_productos.html";
+    //Puedes utilizar window.location.href para obtener la URL actual, redirigir a otras páginas
+    })  
+};
