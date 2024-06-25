@@ -75,8 +75,9 @@ function cargarProductos(productosCategorias) {
     console.log(actualizarBotonesAgregar);
 }
 
-
-
+//--------OTRO CAMBIO, SE LE AGREGA "app." A "productosArray" POR QUE ES UNA VARIABLE LOCAL----------------------------------------------------------------------------------------------
+//--------ANTES TOMABA EL ARRAY DE "productosArray" ----------------------------
+//--------SE HACE ESTE CAMBIO EN TODOS LOS LUGARES QUE SE LLAMABA AL ARRAY "productosArray"---------------------------------
 cargarProductos(app.productosArray);
 
 botonesCategorias.forEach(boton => {
@@ -88,12 +89,13 @@ botonesCategorias.forEach(boton => {
 
         /**Agrego un condicional */
         if (e.currentTarget.id != "todos") {
-
+//--------ESTO SE MODIFICA, "PRODUCTO.CATEGORIA.ID" SE CAMBIA POR "PRODUCTO.CATEGORIA" QUE ES EL UNICO ATRIBUTO QUE DEJO EN LA DB--------------------------------------------------------------------------------------------------
             /** filtro por categoría ***/
             const productosCategorias = app.productosArray.find(producto => producto.categoria === e.currentTarget.id)
             tituloPrincipal.innerText = productosCategorias.categoria;
 
             const productosBoton = app.productosArray.filter(producto => producto.categoria === e.currentTarget.id);
+//-----------------------------------------------------------------------------------------------------------------------
 
             /* console.log("funcionando")*/
 
@@ -137,7 +139,7 @@ let productosEnCarritoLS= localStorage.getItem("productos-en-carrito");
 /**condicional */
 
 if(productosEnCarritoLS){
-           
+
     productosEnCarrito = JSON.parse(productosEnCarritoLS);
     actualizarNumerito();
 
@@ -150,15 +152,28 @@ if(productosEnCarritoLS){
 /**Función para agregar al carrito */
 
 function agregarAlcarrito(e) {
-
+//-----------------------ACA SE CAMBIA AGREGANDO EL "paseInt" PARA QUE TOME VALOR NUMERICO, SINO, NO FUNCIONA
     const idBotonCarrito = parseInt(e.currentTarget.id);
     /*console.log(idBotonCarrito);*/
 
     const productosAgregadosCarrito = app.productosArray.find(producto => producto.id === idBotonCarrito);
+//-------------ESTO ES NUEVO, SI NO HAY STOCK SALTA UN ALERT AVISANDO QUE NO HAY STOCK--------------------------------------------
+    if (!productosAgregadosCarrito) {
+      alert(`Producto con ID ${idBotonCarrito} no encontrado.`);
+      return;
+    }
 
-   
+  // Verificar si hay suficiente stock
+    if (productosAgregadosCarrito.stock <= 0) {
+      alert(`El producto "${productosAgregadosCarrito.nombre}" está agotado.`);
+      return;
+    }
+//---------Y CUANDO SE ACTIVA EL EVENTO(e) SE DESCUENTA EN MENOS 1 LA CANTIDAD EN EL STOCK-------------------------------
+    productosAgregadosCarrito.stock--;
+//---------------------------------------------------------------------------------------------------------------------------------
+
     /**Agrego un condicional */
-
+    
     if (productosEnCarrito.some(producto => producto.id === idBotonCarrito)) {
 
       const  index = productosEnCarrito.findIndex(producto => producto.id === idBotonCarrito);
@@ -180,6 +195,8 @@ function agregarAlcarrito(e) {
     /**Para almacenamiento en el localStorage */
 
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+
+    cargarProductos(app.productosArray);
 }
 
 /** Función para que se actualice el número del carrito */
