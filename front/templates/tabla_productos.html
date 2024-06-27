@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../css/tabla_productos.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tabla_productos.css">
     <title>Document</title>
 </head>
 <body>
@@ -19,23 +19,20 @@
             <div id="app" >
 
                 <!-- Botón Nuevo -->
-                <a class="nuevo" href="ingresar_producto.html">Nuevo</a>
+                <div class="table_header">
+                    <p>Producto detalles</p>
+                    <div>
+                        <a class="add_new" href="ingresar_producto.html">+ Agregar producto</a>
+                    </div>
+                </div>
 
                 <section v-if="error">Lo sentimos se produjo un error</section>
                 <section v-else>
                     <section v-if="cargando">
                         <p>Cargando .....</p>
-
                     </section>
                     <section v-else>
                         <div class="table" >
-                            <div class="table_header">
-                                <p>Producto detalles</p>
-                                <div>
-                                    <input placeholder="producto"/>
-                                    <button class="add_new">+ Add New</button>
-                                </div>
-                            </div>
                             <div class="table_section">
                                 <table>
                                     <thead>
