@@ -109,6 +109,21 @@ tr:hover td{
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
+.botones-popup{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#btnPopupSi{
+    background-color: #f80000;
+}
+
+#btnPopupSi:hover{
+    background-color: #c10000;
+}
+
 @media screen and (max-width: 576px){
     .table_header{
         font-size: 12px;
