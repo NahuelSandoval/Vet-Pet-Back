@@ -43,10 +43,30 @@
                     </div>
 
                     <div class="entrada">
-                        <button class="modificar" type="button" onclick="guardar()">Guardar</button>
-                        <a href="tabla_productos.html" class="modificar" type="button" >Volver</a>
+                        <p class="text">Elija categoria</p>
+                        <div class="select">
+                            <select name="categoria" id="categoria">
+                                <option value="" selected disable>Elija categoria</option>
+                                <option value="alimentos">Alimento</option>
+                                <option value="laboratorio">Laboratorio</option>
+                                <option value="articulos_varios">Articulos varios</option>
+                            </select>
+                        </div>
                     </div>
 
+                    <div class="entrada">
+                        <button class="modificar" type="button" onclick="guardar()">Guardar</button>
+                        <a href="tabla_productos.html" class="modificar volver" type="button" >Volver</a>
+                    </div>
+
+                    <div class="container-popup">
+                        <div class="popup" id="popup">
+                            <img src="../img/checkmark.png" id="popup-img" alt="">
+                            <h1 class="popup-title"></h1>
+                            <p class="popup-message"></p>
+                            <button type="button" id="btnPopup" onclick="closePopup()">OK</button>
+                        </div>
+                    </div>
                 </form>
 
             </div>

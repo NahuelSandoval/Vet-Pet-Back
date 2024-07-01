@@ -8,7 +8,7 @@
     margin-top: 6rem;
 }
 .carousel-item img {
-    border-radius: 50%; /* Hacer las imágenes redondas */
+    border-radius: 8%; /* Hacer las imágenes redondas */
     width: 100%; /* Asegurar que las imágenes tomen el ancho completo del contenedor */
     max-height: 77vh; /* Limitar la altura máxima de las imágenes */
     /* object-fit: cover; /* Ajustar la imagen para que cubra el contenedor manteniendo la proporción */
@@ -16,7 +16,7 @@
     margin: 0 0 50px 0rem;
 }
 .carousel-control-prev-icon, .carousel-control-next-icon {
-    background-color: #5cb85c; /* Color verde para los botones */
+    /*background-color: #5cb85c; /* Color verde para los botones */
     border-radius: 50%; /* Hacer los botones redondos */
 }
 .carousel-control-prev, .carousel-control-next {
@@ -27,8 +27,8 @@
     ; /* Fondo semitransparente para el texto */
     border-radius: 10px; /* Bordes redondeados para el texto */
     position: relative;
-    width: 70%;
-    height: 100% !important;
+    width: 77%;
+    height: 28% !important;
 
 }
 .heading, .text{

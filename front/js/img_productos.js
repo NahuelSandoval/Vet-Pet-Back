@@ -1,280 +1,43 @@
 
+
 /* Array para las imagenes de los productos*/
 
-
-
-const productosArray = [
-
-
-    /**Categoría alimentos**/
-    {
-        id: "alimento-01",
-        titulo: "Alimento 01",
-        imagen: "../img/Alimentos/alimento.jpg",
-        categoria: {
-
-            nombre: "Alimentos",
-            id: "alimentos"
-        },
-
-        precio: 42000,
-        
+let app = {
+    url: "http://127.0.0.1:5000/productos",
+    productosArray: [],
+  
+    init() {
+      this.fetchData(this.url);
     },
-
-    {
-        id: "alimento-02",
-        titulo: "Alimento 02",
-        imagen: "../img/Alimentos/images3.jpg",
-        categoria: {
-
-            nombre: "Alimentos",
-            id: "alimentos"
-        },
-
-        precio: 55000
-
+  
+    fetchData(url) {
+      fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          this.productosArray = data; // Almacena los productos obtenidos en el array
+          this.renderProductos(); // Llama a la función para renderizar los productos
+        })
+        .catch(err => {
+          console.error('Error fetching data:', err);
+        });
     },
-    {
-        id: "alimento-03",
-        titulo: "Alimento 03",
-        imagen: "../img/Alimentos/images4.jpg",
-        categoria: {
+  
+    renderProductos() {
+      // Simplemente imprime los productos en la consola para este ejemplo
+      cargarProductos(this.productosArray);
+    }
+    
+  };
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    app.init();
+  });
 
-            nombre: "Alimentos",
-            id: "alimentos"
-        },
-
-        precio: 37500
-
-    },
-    {
-        id: "alimento-04",
-        titulo: "Alimento 04",
-        imagen: "../img/Alimentos/Sin título3.jpg",
-        categoria: {
-
-            nombre: "Alimentos",
-            id: "alimentos"
-        },
-
-        precio: 48500
-
-    },
-
-
-    /**Categoría laboratorio**/
-
-    {
-        id: "laboratorio-01",
-        titulo: "Laboratorio 01",
-        imagen: "../img/Laboratorio/images.jpg",
-        categoria: {
-
-            nombre: "Laboratorio",
-            id: "laboratorio"
-        },
-
-        precio: 12000
-
-    },
-
-    {
-        id: "laboratorio-02",
-        titulo: "Laboratorio 02",
-        imagen: "../img/Laboratorio/images5.jpg",
-        categoria: {
-
-            nombre: "Laboratorio",
-            id: "laboratorio"
-        },
-
-        precio: 7800
-
-    },
-    {
-        id: "laboratorio-03",
-        titulo: "Laboratorio 03",
-        imagen: "../img/Laboratorio/images6.jpg",
-        categoria: {
-
-            nombre: "Laboratorio",
-            id: "laboratorio"
-        },
-
-        precio: 9000
-
-    },
-    {
-        id: "laboratorio-04",
-        titulo: "Laboratorio 04",
-        imagen: "../img/Laboratorio/images8.jpg",
-        categoria: {
-
-            nombre: "Laboratorio",
-            id: "laboratorio"
-        },
-
-        precio: 12500
-
-    },
-    {
-        id: "laboratorio-05",
-        titulo: "Laboratorio 05",
-        imagen: "../img/Laboratorio/labyes-trihepat_2020ARG_FrascoBlanco.jpg",
-        categoria: {
-
-            nombre: "Laboratorio",
-            id: "laboratorio"
-        },
-
-        precio: 11000
-
-    },
-
-    {
-        id: "laboratorio-06",
-        titulo: "Laboratorio 06",
-        imagen: "../img/Laboratorio/pack-azitromicina.jpg",
-
-        categoria: {
-            nombre: "Laboratorio",
-            id: "laboratorio"
-        },
-
-        precio: 15000
-
-    },
-
-    {
-        id: "laboratorio-07",
-        titulo: "Laboratorio 07",
-        imagen: "../img/Laboratorio/pack-GrupoC72dpi-WEB.jpg",
-
-        categoria: {
-            nombre: "Laboratorio",
-            id: "laboratorio"
-        },
-
-        precio: 19000
-
-    },
-
-    {
-        id: "laboratorio-08",
-        titulo: "Laboratorio 08",
-        imagen: "../img/Laboratorio/pack-labyderm-skin-soldier.jpg",
-
-        categoria: {
-            nombre: "Laboratorio",
-            id: "laboratorio"
-        },
-
-        precio: 19000
-
-    },
-
-    {
-        id: "laboratorio-09",
-        titulo: "Laboratorio 09",
-        imagen: "../img/Laboratorio/pack-ocubiotic-se-global.jpg",
-
-        categoria: {
-            nombre: "Laboratorio",
-            id: "laboratorio"
-        },
-
-        precio: 19750
-
-    },
-
-    {
-        id: "laboratorio-10",
-        titulo: "Laboratorio 10",
-        imagen: "../img/Laboratorio/Sin título.jpg",
-
-        categoria: {
-            nombre: "Laboratorio",
-            id: "laboratorio"
-        },
-
-        precio: 17750
-
-    },
-
-    {
-        id: "laboratorio-11",
-        titulo: "Laboratorio 11",
-        imagen: "../img/Laboratorio/Sin título2.jpg",
-
-        categoria: {
-            nombre: "Laboratorio",
-            id: "laboratorio"
-        },
-
-        precio: 22750
-
-    },
-
-    /**Categoría articulos varios**/
-
-
-    {
-        id: "articulo-vario-01",
-        titulo: "Articulo vario 01",
-        imagen: "../img/Articulos varios/juego.jpg",
-
-        categoria: {
-            nombre: "Artículos varios",
-            id: "articulos_varios"
-        },
-
-        precio: 37500
-
-    },
-
-    {
-        id: "articulo-vario-02",
-        titulo: "Articulo vario 02",
-        imagen: "../img/Articulos varios/kennel.jpg",
-
-        categoria: {
-            nombre: "Artículos varios",
-            id: "articulos_varios"
-        },
-
-        precio: 19500
-
-    },
-
-    {
-        id: "articulo-vario-03",
-        titulo: "Articulo vario 03",
-        imagen: "../img/Articulos varios/para paseo.jpg",
-
-        categoria: {
-            nombre: "Artículos varios",
-            id: "articulos_varios"
-        },
-
-        precio: 15600
-
-    },
-
-
-    {
-        id: "articulo-vario-04",
-        titulo: "Articulo vario 04",
-        imagen: "../img/Articulos varios/Peine.jpg",
-
-        categoria: {
-            nombre: "Artículos varios",
-            id: "articulos_varios"
-        },
-
-        precio: 5600
-
-    },
-]
 
 
 /* Declaración de variables*/
@@ -298,10 +61,11 @@ function cargarProductos(productosCategorias) {
         const div = document.createElement("div");
         div.classList.add("producto");
         div.innerHTML = `
-            <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
+            <img class="producto-imagen" src="${producto.imagen}" alt="${producto.nombre}">
             <div class="producto-detalle">
-                <h3 class="producto-titulo">${producto.titulo}</h3>
+                <h3 class="producto-titulo"> ${producto.nombre}</h3>
                 <p class="producto-precio">$ ${producto.precio}</p>
+                <p class="producto-stock"> Stock: ${producto.stock}</p>
                 <button class="producto-agregar" id="${producto.id}">Agregar</button>
             </div>`
             ;
@@ -312,40 +76,54 @@ function cargarProductos(productosCategorias) {
     console.log(actualizarBotonesAgregar);
 }
 
+//--------OTRO CAMBIO, SE LE AGREGA "app." A "productosArray" POR QUE ES UNA VARIABLE LOCAL----------------------------------------------------------------------------------------------
+//--------ANTES TOMABA EL ARRAY DE "productosArray" ----------------------------
+//--------SE HACE ESTE CAMBIO EN TODOS LOS LUGARES QUE SE LLAMABA AL ARRAY "productosArray"---------------------------------
+cargarProductos(app.productosArray);
 
 
-cargarProductos(productosArray);
 
+// Función para capitalizar la primera letra de cada palabra
+function capitalize(str) {
+  return str.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+}
+
+// Función para traducir categorías específicas, ESTO SE APLICO PARA CASOS COMO ESTE articulos_varios A Artículos varios
+
+function translateCategory(category) {
+  switch(category) {
+      case 'articulos_varios':
+          return 'Artículos varios';
+      default:
+          return capitalize(category);
+  }
+}
+
+//CODIGO  AJUSTADO PARA  QUE TOME DE FORMA  CORRECTA A LOS TITULOS DE LOS PRODUCTOS
 botonesCategorias.forEach(boton => {
+boton.addEventListener("click", (e) => {
+    botonesCategorias.forEach(boton => boton.classList.remove("active"));
+    e.currentTarget.classList.add("active");
 
-    boton.addEventListener("click", (e) => {
+    if (e.currentTarget.id != "todos") {
+        const productosBoton = app.productosArray.filter(producto => producto.categoria === e.currentTarget.id);
 
-        botonesCategorias.forEach(boton => boton.classList.remove("active"))
-        e.currentTarget.classList.add("active");
-
-        /**Agrego un condicional */
-        if (e.currentTarget.id != "todos") {
-
-            /** filtro por categoría ***/
-            const productosCategorias = productosArray.find(producto => producto.categoria.id === e.currentTarget.id)
-            tituloPrincipal.innerText = productosCategorias.categoria.nombre;
-
-            const productosBoton = productosArray.filter(producto => producto.categoria.id === e.currentTarget.id);
-
-            /* console.log("funcionando")*/
-
-            cargarProductos(productosBoton);
-
+        // Aquí usamos la categoría del primer producto filtrado para establecer el título
+        if (productosBoton.length > 0) {
+            tituloPrincipal.innerText = translateCategory(productosBoton[0].categoria);
         } else {
-
-            tituloPrincipal.innerText = "Todos los productos";
-            cargarProductos(productosArray);
+            tituloPrincipal.innerText = "Categoría vacía";
         }
 
-
-    })
-
+        cargarProductos(productosBoton);
+    } else {
+        tituloPrincipal.innerText = "Todos los productos";
+        cargarProductos(app.productosArray);
+    }
 });
+});
+
+
 
 /**Para actualizar los productos al carrito */
 
@@ -374,7 +152,7 @@ let productosEnCarritoLS= localStorage.getItem("productos-en-carrito");
 /**condicional */
 
 if(productosEnCarritoLS){
-           
+
     productosEnCarrito = JSON.parse(productosEnCarritoLS);
     actualizarNumerito();
 
@@ -387,15 +165,28 @@ if(productosEnCarritoLS){
 /**Función para agregar al carrito */
 
 function agregarAlcarrito(e) {
-
-    const idBotonCarrito = e.currentTarget.id;
+//-----------------------ACA SE CAMBIA AGREGANDO EL "paseInt" PARA QUE TOME VALOR NUMERICO, SINO, NO FUNCIONA
+    const idBotonCarrito = parseInt(e.currentTarget.id);
     /*console.log(idBotonCarrito);*/
 
-    const productosAgregadosCarrito = productosArray.find(producto => producto.id === idBotonCarrito);
+    const productosAgregadosCarrito = app.productosArray.find(producto => producto.id === idBotonCarrito);
+//-------------ESTO ES NUEVO, SI NO HAY STOCK SALTA UN POPUP AVISANDO QUE NO HAY STOCK--------------------------------------------
+    if (!productosAgregadosCarrito) {
+      openPopup(false, "Producto desconocido", `El producto con ID'${idBotonCarrito}' no se encontro.`)
+      return;
+    }
 
-   
+  // Verificar si hay suficiente stock
+    if (productosAgregadosCarrito.stock <= 0) {
+      openPopup(false, "Producto agotado", `El producto '${productosAgregadosCarrito.nombre}' está agotado.`)
+      return;
+    }
+//---------Y CUANDO SE ACTIVA EL EVENTO(e) SE DESCUENTA EN MENOS 1 LA CANTIDAD EN EL STOCK-------------------------------
+    productosAgregadosCarrito.stock--;
+//---------------------------------------------------------------------------------------------------------------------------------
+
     /**Agrego un condicional */
-
+    
     if (productosEnCarrito.some(producto => producto.id === idBotonCarrito)) {
 
       const  index = productosEnCarrito.findIndex(producto => producto.id === idBotonCarrito);
@@ -408,6 +199,7 @@ function agregarAlcarrito(e) {
         productosEnCarrito.push(productosAgregadosCarrito);  /**para cargar al carrito */
 
     }
+    
 
     actualizarNumerito();
 
@@ -416,6 +208,8 @@ function agregarAlcarrito(e) {
     /**Para almacenamiento en el localStorage */
 
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+
+    cargarProductos(app.productosArray);
 }
 
 /** Función para que se actualice el número del carrito */
@@ -428,3 +222,34 @@ function actualizarNumerito(){
 
     console.log(numerito);
 }
+
+
+
+
+//FUNCION DE POPUP(modificada para ecomerce)
+
+function openPopup(success, title, message){
+  let popup = document.getElementById("popup");
+  let popupImg = document.getElementById("popup-img");
+  let popupTitle = popup.querySelector(".popup-title");
+  let popupMessage = popup.querySelector(".popup-message");
+  //si se edita aparece la ruta de la imagen checkmark
+  if (success) {
+      popupImg.src = "../img/checkmark.png"
+  //si es false aparece la ruta de la imagen crossmark
+  } else {
+      popupImg.src = "../img/crossmark.png"
+  }
+  //aca defino los parametros y les agrego contenido
+  popupTitle.textContent = title;
+  popupMessage.textContent = message;
+
+  popup.classList.add("open-popup");
+  //cuando se valida el form, abre el popup
+
+  let boton = document.getElementById("btnPopup");
+  boton.addEventListener("click", function() {
+      popup.classList.remove("open-popup");
+  //cuando se aprieta el aceptar cierra el popup
+  })  
+};
