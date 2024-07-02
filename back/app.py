@@ -1,6 +1,6 @@
 #  Importar las herramientas
 # Acceder a las herramientas para crear la app web
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 # Para manipular la DB
 from flask_sqlalchemy import SQLAlchemy 
@@ -9,7 +9,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
 # Crear la app
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../front')
 
 # permita acceder desde el frontend al backend
 CORS(app)
@@ -31,12 +31,14 @@ class Producto(db.Model):
     precio=db.Column(db.Integer)
     stock=db.Column(db.Integer)
     imagen=db.Column(db.String(400))
+    categoria=db.Column(db.String(50))
 
-    def __init__(self,nombre,precio,stock,imagen):   #crea el  constructor de la clase
+    def __init__(self,nombre,precio,stock,imagen,categoria):   #crea el  constructor de la clase
         self.nombre=nombre   # no hace falta el id porque lo crea sola mysql por ser auto_incremento
         self.precio=precio
         self.stock=stock
         self.imagen=imagen
+        self.categoria=categoria
 
 
 # 8. Crear la tabla al ejecutarse la app
@@ -47,7 +49,7 @@ with app.app_context():
 # / es la ruta de inicio
 @app.route("/")
 def index():
-    return f'App Web para registrar nombres de productos'
+    return render_template('index.html')
 
 # Crear un registro en la tabla Productos
 @app.route("/registro", methods=['POST']) 
@@ -57,8 +59,9 @@ def registro():
     precio=request.json['precio']
     stock=request.json['stock']
     imagen=request.json['imagen']
+    categoria = request.json["categoria"]
 
-    nuevo_registro = Producto(nombre=nombre_recibido,precio=precio,stock=stock,imagen=imagen)
+    nuevo_registro = Producto(nombre=nombre_recibido,precio=precio,stock=stock,imagen=imagen,categoria=categoria)
     db.session.add(nuevo_registro)
     db.session.commit()
 
@@ -76,7 +79,7 @@ def productos():
     data_serializada = []
     
     for objeto in all_registros:
-        data_serializada.append({"id":objeto.id, "nombre":objeto.nombre, "precio":objeto.precio, "stock":objeto.stock, "imagen":objeto.imagen})
+        data_serializada.append({"id":objeto.id, "nombre":objeto.nombre, "precio":objeto.precio, "stock":objeto.stock, "imagen":objeto.imagen, "categoria":objeto.categoria})
 
     return jsonify(data_serializada)
 
@@ -92,14 +95,16 @@ def update(id):
     precio=request.json['precio']
     stock=request.json['stock']
     imagen=request.json['imagen']
+    categoria = request.json["categoria"]
 
     producto.nombre=nombre
     producto.precio=precio
     producto.stock=stock
     producto.imagen=imagen
+    producto.categoria=categoria
     db.session.commit()
 
-    data_serializada = [{"id":producto.id, "nombre":producto.nombre, "precio":producto.precio, "stock":producto.stock, "imagen":producto.imagen}]
+    data_serializada = [{"id":producto.id, "nombre":producto.nombre, "precio":producto.precio, "stock":producto.stock, "imagen":producto.imagen, "categoria":producto.categoria}]
     
     return jsonify(data_serializada)
 
@@ -114,7 +119,7 @@ def borrar(id):
     db.session.delete(producto)
     db.session.commit()
 
-    data_serializada = [{"id":producto.id, "nombre":producto.nombre, "precio":producto.precio, "stock":producto.stock, "imagen":producto.imagen}]
+    data_serializada = [{"id":producto.id, "nombre":producto.nombre, "precio":producto.precio, "stock":producto.stock, "imagen":producto.imagen, "categoria":producto.categoria}]
 
     return jsonify(data_serializada)
 
