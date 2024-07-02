@@ -56,7 +56,9 @@ const { createApp } = Vue;
                     document.getElementById("popup").classList.remove("open-popup");
                 }
             }
+
         }).mount('#app');
+
 
         function openPopup(success, title, message, buttons) {
             let popup = document.getElementById("popup");
@@ -74,3 +76,4 @@ const { createApp } = Vue;
             document.getElementById("btnPopupSi").style.display = buttons.includes("Si") ? "inline-block" : "none";
             document.getElementById("btnPopupCerrar").style.display = buttons.includes("Cerrar") ? "inline-block" : "none";
         }
+

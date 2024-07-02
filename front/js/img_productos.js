@@ -1,7 +1,9 @@
 
+
 /* Array para las imagenes de los productos*/
 
-const app = {
+let app = {
+
     url: "http://127.0.0.1:5000/productos",
     productosArray: [],
   
@@ -62,7 +64,9 @@ function cargarProductos(productosCategorias) {
         div.innerHTML = `
             <img class="producto-imagen" src="${producto.imagen}" alt="${producto.nombre}">
             <div class="producto-detalle">
-                <h3 class="producto-titulo">${producto.nombre}</h3>
+
+                <h3 class="producto-titulo"> ${producto.nombre}</h3>
+
                 <p class="producto-precio">$ ${producto.precio}</p>
                 <p class="producto-stock"> Stock: ${producto.stock}</p>
                 <button class="producto-agregar" id="${producto.id}">Agregar</button>
@@ -80,37 +84,53 @@ function cargarProductos(productosCategorias) {
 //--------SE HACE ESTE CAMBIO EN TODOS LOS LUGARES QUE SE LLAMABA AL ARRAY "productosArray"---------------------------------
 cargarProductos(app.productosArray);
 
+
+
+
+// Función para capitalizar la primera letra de cada palabra
+function capitalize(str) {
+  return str.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+}
+
+// Función para traducir categorías específicas, ESTO SE APLICO PARA CASOS COMO ESTE articulos_varios A Artículos varios
+
+function translateCategory(category) {
+  switch(category) {
+      case 'articulos_varios':
+          return 'Artículos varios';
+      default:
+          return capitalize(category);
+  }
+}
+
+
+//CODIGO  AJUSTADO PARA  QUE TOME DE FORMA  CORRECTA A LOS TITULOS DE LOS PRODUCTOS
 botonesCategorias.forEach(boton => {
+boton.addEventListener("click", (e) => {
+    botonesCategorias.forEach(boton => boton.classList.remove("active"));
+    e.currentTarget.classList.add("active");
 
-    boton.addEventListener("click", (e) => {
+    if (e.currentTarget.id != "todos") {
+        const productosBoton = app.productosArray.filter(producto => producto.categoria === e.currentTarget.id);
 
-        botonesCategorias.forEach(boton => boton.classList.remove("active"))
-        e.currentTarget.classList.add("active");
-
-        /**Agrego un condicional */
-        if (e.currentTarget.id != "todos") {
-//--------ESTO SE MODIFICA, "PRODUCTO.CATEGORIA.ID" SE CAMBIA POR "PRODUCTO.CATEGORIA" QUE ES EL UNICO ATRIBUTO QUE DEJO EN LA DB--------------------------------------------------------------------------------------------------
-            /** filtro por categoría ***/
-            const productosCategorias = app.productosArray.find(producto => producto.categoria === e.currentTarget.id)
-            tituloPrincipal.innerText = productosCategorias.categoria;
-
-            const productosBoton = app.productosArray.filter(producto => producto.categoria === e.currentTarget.id);
-//-----------------------------------------------------------------------------------------------------------------------
-
-            /* console.log("funcionando")*/
-
-            cargarProductos(productosBoton);
-
+        // Aquí usamos la categoría del primer producto filtrado para establecer el título
+        if (productosBoton.length > 0) {
+            tituloPrincipal.innerText = translateCategory(productosBoton[0].categoria);
         } else {
 
-            tituloPrincipal.innerText = "Todos los productos";
-            cargarProductos(app.productosArray);
+            tituloPrincipal.innerText = "Categoría vacía";
+
         }
 
-
-    })
-
+        cargarProductos(productosBoton);
+    } else {
+        tituloPrincipal.innerText = "Todos los productos";
+        cargarProductos(app.productosArray);
+    }
 });
+});
+
+
 
 /**Para actualizar los productos al carrito */
 

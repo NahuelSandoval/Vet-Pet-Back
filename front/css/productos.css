@@ -65,7 +65,7 @@ aside{
 
     background-color: var(--clr-main);
     color: var(--first-color);
-    /*width: 112%;*/
+    width: 112%;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
     position: relative;
@@ -234,7 +234,7 @@ main{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
+    gap: 4rem;
     background-color: var(--container-color);
     color: var(--tittle-color);
     padding: 1rem;
@@ -379,6 +379,7 @@ main{
 /* LE BORRO EL MAX-WIDTH Y LE AGREGO WIDTH AL BOTON MENU */
     .wrapper_derecho{
         width: 70vw;
+        height: auto;
     }
     .producto-imagen {
         width: 100%;
