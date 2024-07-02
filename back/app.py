@@ -1,6 +1,7 @@
 #  Importar las herramientas
 # Acceder a las herramientas para crear la app web
 from flask import Flask, request, jsonify, render_template
+
 # Para manipular la DB
 from flask_sqlalchemy import SQLAlchemy 
 
@@ -16,7 +17,9 @@ CORS(app)
 
 # Configurar a la app la DB
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://usuario:contraseña@localhost:3306/nombre_de_la_base_de_datos'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:@localhost:3306/producto'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:@localhost:3306/productos'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Crear un objeto db, para informar a la app que se trabajará con sqlalchemy

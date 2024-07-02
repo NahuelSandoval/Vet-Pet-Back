@@ -57,16 +57,24 @@
                                                 <img :src="producto.imagen" alt="">
                                             </td>
                                             <td>
-                                                <!-- <a class="boton-delete" onclick="openPopup()"><i class='bx bx-trash'></i></a>--> 
-                                               <a class="boton-delete" v-on:click="eliminar(producto.id)" ><i class='bx bx-trash'></i></a> 
+
+                                                <!--<a class="boton-delete"  v-on:click="eliminar(producto.id)"><i class='bx bx-trash'></i></a> -->
+                                                <a class="boton-delete" @click="showDeleteConfirmation(producto.id)"><i class='bx bx-trash'></i></a> 
                                                 <a class="boton-edit" :href="'editar_producto.html?id='+ producto.id+'&nombre=' +producto.nombre+ '&precio='+producto.precio+'&stock='+producto.stock + '&imagen='+producto.imagen +  '&categoria='+producto.categoria"><i class='bx bx-edit'></i></a>
+
+
                                                 <div class="container-popup">
                                                     <div class="popup" id="popup">
                                                         <img src="../img/checkmark.png" id="popup-img" alt="">
                                                         <h1 class="popup-title">1</h1>
                                                         <p class="popup-message">2</p>
-                                                        <button type="button" id="btnPopup" onclick="closePopup()">OK</button>
-                                                        <a class="boton-delete" @click="eliminar(producto.id)"><i class='bx bx-trash'></i></a>
+
+                                                        <div class="botones-popup">
+                                                            <button type="button" id="btnPopupNo" @click="closePopup">No</button>
+                                                            <button type="button" class="boton-delete" id="btnPopupSi" @click="confirmDelete">Si</button>
+                                                        </div>
+                                                        <button type="button" id="btnPopupCerrar" @click="closePopup">Cerrar</button>
+
                                                     </div>
                                                 </div>
                                             </td>
