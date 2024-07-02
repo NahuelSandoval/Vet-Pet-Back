@@ -15,6 +15,12 @@ let headerContent = `<header class="header" id="header">
                         </a>
                     </li>
 
+                    <li class="nav__item">
+                        <a href="../index.html#contacto" class="nav__link">
+                            <i class='bx bx-envelope nav__icon'></i>
+                            <span class="nav__name">Contacto</span>
+                        </a>
+                    </li>
 
                     <li class="nav__item">
                         <a href="./index_producto_y_servicio.html" class="nav__link">

@@ -21,8 +21,8 @@ a{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    padding: 10px;
-    margin: 5px;
+    /* padding: 10px; */
+    /* margin: 5px; */
 }
 
 td a:nth-child(2):hover{
@@ -34,10 +34,14 @@ td a:nth-child(1):hover{
 }
 
 td a:nth-child(2){
+    padding: 10px;
+    margin: 5px;
     background-color: #0298cf;
 }
 
 td a:nth-child(1){
+    padding: 10px;
+    margin: 5px;
     background-color: #f80000;
 }
 
@@ -136,7 +140,7 @@ tr:hover td{
         padding: 10px;
     }
 }
-@media screen and (max-width: 300px){
+@media screen and (max-width: 310px){
     .table_header p{
         display: none;
     }

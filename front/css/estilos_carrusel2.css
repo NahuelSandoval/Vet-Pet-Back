@@ -38,7 +38,7 @@
   .carousel-caption{
     margin-top: 0px !important;
     display: block !important;
-    position: relative;
+    position: relative !;
     width: 70%;
   }
   .carousel-item img{
