@@ -3,26 +3,30 @@
     padding: 0%;
 }
 
-.container-form{
+.container-form-edit{
    /* background: radial-gradient(circle, #ffcccc, #ff9999);*/
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 6rem;
+    
 }
 
 form{
     border-radius: 10px;
     background-color: var(--container-color);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 41vw;
-    height: 78vh;
+    width: 60%;
+    height: 80%;
+    padding: 25px 0px;
     border-radius: 3vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
 }
 
 .entrada{
@@ -51,10 +55,19 @@ select {
         font-size: var(--normal-font-size);
         font-family: var(--body-font);
     }
+.select{
+    width: 17rem !important;
+}
 label{
     font-size: 2vw;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: black;
+    
+}
+
+.btn{
+    margin: 5px;
+    text-align: center;
 }
 
 button {
@@ -96,81 +109,34 @@ button:hover {
 
 @media screen and (max-width:768px){
     
-        form {
-            border-radius: 10px;
-        background-color: var(--container-color);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        width: 69vw;
-        height: 97vh;
-        border-radius: 3vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        }
+    form {
+    width: 79vw;
+    }
 
     label{
-        font-size: 3vw;
+        font-size: 18px;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         color: black;
     }
 
-    a{
-        
-        text-decoration: none;
-        color: black;
-        
-    }
-
-    .modificar{
-        color: #f2f2f2;
-        margin-right: 2vh;
-        background-color: var(--first-color);
-        color: white;
-        padding: 0.5vw 3vh;
-        border: none;
-        border-radius: 2vw;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        cursor: pointer;
-}
-    button:hover {
-        background-color: #ff6666;
-    }
-
-    .volver:hover {
-        background-color: #ff6666;
-
-    }
-
-    button {
-       
-        font-size: 2.1vw;
-       
-    }
 }
 
 @media screen and (max-width:425px){
     form {
-        border-radius: 10px;
-        background-color: var(--container-color);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         width: 86vw;
-        height: 64vh;
-        border-radius: 3vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-    }
 
+    }
+    .inputBox{
+        width: 80%;
+    }
     label{
-        font-size: 4vw;
+        font-size: 12px;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         color: black;
     }
-
+    .select{
+        width: 100% !important;
+    }
     a{
         
         text-decoration: none;
@@ -178,96 +144,19 @@ button:hover {
         
     }
 
-    .modificar{
-        color: #f2f2f2;
-        margin-right: 2vh;
-        background-color: var(--first-color);
-        color: white;
-        padding: 0.5vw 3vh;
-        border: none;
-        border-radius: 2vw;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        cursor: pointer;
-    }
+    .container-form {
+        /* background: radial-gradient(circle, #ffcccc, #ff9999); */
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        top: -5rem;
 
-    button {
         
-        font-size: 3.1vw;
-    
-}
-
-.container-form {
-    /* background: radial-gradient(circle, #ffcccc, #ff9999); */
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    top: -5rem;
-
-    
-}
-
-select {
-    flex: 1;
-    padding: 0 0.5em;
-    cursor: pointer;
-    font-size: var(--normal-font-size);
-    font-family: var(--body-font);
-}
-
-
-}
-
-
-@media screen and (max-width:320px){
-    form {
-        border-radius: 10px;
-    background-color: var(--container-color);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 69vw;
-    height: 70vh;
-    border-radius: 3vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     }
 
-label{
-    font-size: 4vw;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: black;
-}
-
-a{
-    
-    text-decoration: none;
-    color: black;
-    
-}
-.modificar{
-    color: #f2f2f2;
-    margin-right: 2vh;
-    background-color: var(--first-color);
-    color: white;
-    padding: 0.5vw 3vh;
-    border: none;
-    border-radius: 2vw;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-}
-
-select {
-    flex: 1;
-    padding: 0 0.5em;
-    cursor: pointer;
-    font-size: var(--normal-font-size);
-    font-family: var(--body-font);
-}
 
 }
+
+

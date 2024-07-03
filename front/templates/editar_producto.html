@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="../css/ingresar_producto.css">
     <link rel="stylesheet" href="../css/tabla_productos.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -12,35 +13,35 @@
     <header id="header"></header>
 
     <main>
-        <section>
-            <div class="container-form">
+        <section id="dashboard">
+            <div class="container-form-edit">
                 <form>
-                    <div class="entrada">
+                    <div class="inputBox">
                         <label for="id">ID</label>
                         <input type="number" name="id" id="id" disabled>
                     </div>
             
-                    <div class="entrada">
+                    <div class="inputBox">
                         <label for="nombre">Nombre:</label>
                         <input type="text" name="nombre" id="nombre">
                     </div>
 
-                    <div class="entrada">
+                    <div class="inputBox">
                         <label for="precio">Precio:</label>
                         <input type="number" name="precio" id="precio">
                     </div>
 
-                    <div class="entrada">
+                    <div class="inputBox">
                         <label for="stock">Stock:</label>
                         <input type="number" name="stock" id="stock">
                     </div>
 
-                    <div class="entrada">
+                    <div class="inputBox">
                         <label for="imagen">Imagen:</label>
                         <input type="text" name="imagen" id="imagen">
                     </div>
 
-                    <div class="entrada">
+                    <div class="inputBox">
                         <p class="text">Elija categoria</p>
                         <div class="select">
                             <select name="categoria" id="categoria">
@@ -51,9 +52,10 @@
                             </select>
                         </div>
                     </div>
-
-                    <button class="modificar" type="button" onclick="modificar()">Modificar</button>
-                    <a href="tabla_productos.html" class="modificar" type="button" >Volver</a>
+                    <div class="inputBox">
+                        <button class="btn" type="button" onclick="modificar()">Modificar</button>
+                        <a href="tabla_productos.html" class="btn" type="button" >Volver</a>
+                    </div>
                 </form>
             </div>
 
@@ -74,5 +76,6 @@
     <script src="../js/editar_producto.js"></script>
     <script src="../js/datos_editar.js"></script>
     <script src="../js/header.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
