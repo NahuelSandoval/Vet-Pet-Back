@@ -16,34 +16,34 @@
 <body>
 
 
-    <main>
+    <main class="">
 
-        <section id="dashboard">
-            <div class="container-form">
+        <section id="dashboard" class="">
+            <div class="container-form-edit">
 
-                <form action="">
-                    <div class="entrada">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" name="nombre" id="nombre">
+                <form action=""class="">
+                    <div class="inputBox">
+                        <label for="nombre" >Nombre:</label>
+                        <input class="name" type="text" name="nombre" id="nombre" placeholder="Ingrese producto">
                     </div>
 
-                    <div class="entrada">
+                    <div class="inputBox">
                         <label for="precio">Precio:</label>
-                        <input type="number" name="precio" id="precio">
+                        <input type="number" name="precio" id="precio" placeholder="Ingrese precio">
                     </div>
 
-                    <div class="entrada">
+                    <div class="inputBox">
                         <label for="stock">Stock:</label>
-                        <input type="number" name="stock" id="stock">
+                        <input type="number" name="stock" id="stock" placeholder="Ingrese stock">
                     </div>
 
-                    <div class="entrada">
+                    <div class="inputBox">
                         <label for="imagen">Imagen:</label>
-                        <input type="text" name="imagen" id="imagen">
+                        <input type="text" name="imagen" id="imagen" placeholder="Ingrese url de imagen">
                     </div>
 
-                    <div class="entrada">
-                        <p class="text">Elija categoria</p>
+                    <div class="inputBox">
+                        <label for="categoria">Elija categoria</label>
 
                         <div class="select">
 
@@ -56,9 +56,9 @@
                         </div>
                     </div>
 
-                    <div class="entrada">
-                        <button class="modificar" type="button" onclick="guardar()">Guardar</button>
-                        <a href="tabla_productos.html" class="modificar volver" type="button" >Volver</a>
+                    <div class="inputBox">
+                        <button class="btn" type="button" onclick="guardar()">Guardar</button>
+                        <a href="tabla_productos.html" class="btn" type="button" >Volver</a>
                     </div>
 
                     <div class="container-popup">
@@ -80,7 +80,7 @@
 
     <script src="../js/ingresar_producto.js"></script>
     <script src="../js/header.js"></script>
-<script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
 
 </body>
 
