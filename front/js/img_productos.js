@@ -60,6 +60,7 @@ function cargarProductos(productosCategorias) {
     productosCategorias.forEach(producto => {
 
         const div = document.createElement("div");
+        div.id = `producto-${producto.id}`;
         div.classList.add("producto");
         div.innerHTML = `
             <img class="producto-imagen" src="${producto.imagen}" alt="${producto.nombre}">
@@ -111,7 +112,11 @@ boton.addEventListener("click", (e) => {
     e.currentTarget.classList.add("active");
 
     if (e.currentTarget.id != "todos") {
-        const productosBoton = app.productosArray.filter(producto => producto.categoria === e.currentTarget.id);
+        
+      /** filtro por categoría ***/
+
+      
+      const productosBoton = app.productosArray.filter(producto => producto.categoria === e.currentTarget.id);
 
         // Aquí usamos la categoría del primer producto filtrado para establecer el título
         if (productosBoton.length > 0) {
@@ -190,6 +195,16 @@ function agregarAlcarrito(e) {
     }
 //---------Y CUANDO SE ACTIVA EL EVENTO(e) SE DESCUENTA EN MENOS 1 LA CANTIDAD EN EL STOCK-------------------------------
     productosAgregadosCarrito.stock--;
+    
+
+//------------------------------
+
+    // Actualizar visualmente el stock en la tarjeta del producto
+    const cardProducto = document.getElementById(`producto-${idBotonCarrito}`);
+    if (cardProducto) {
+        cardProducto.querySelector(".producto-stock").textContent = `Stock: ${productosAgregadosCarrito.stock}`;
+    }
+
 //---------------------------------------------------------------------------------------------------------------------------------
 
     /**Agrego un condicional */
@@ -216,7 +231,7 @@ function agregarAlcarrito(e) {
 
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
 
-    cargarProductos(app.productosArray);
+    cargarProductos(productosBoton);
 }
 
 /** Función para que se actualice el número del carrito */
