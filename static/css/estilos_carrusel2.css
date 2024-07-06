@@ -1,0 +1,55 @@
+
+#veterinaryServicesCarousel {
+    /* border: 2px solid var(--clr-main); */ /* Borde verde */
+    max-height: auto; /* Bordes redondeados */
+    overflow: hidden; /* Para mantener los bordes redondeados */
+    margin: 20px auto; /* Márgenes alrededor del carrusel, centrado horizontal */
+    max-width: 80%; /* Asegura que el carrusel no exceda el ancho de su contenedor */
+    margin-top: 6rem;
+}
+.carousel-item img {
+    border-radius: 8%; /* Hacer las imágenes redondas */
+    width: 100%; /* Asegurar que las imágenes tomen el ancho completo del contenedor */
+    max-height: 77vh; /* Limitar la altura máxima de las imágenes */
+    /* object-fit: cover; /* Ajustar la imagen para que cubra el contenedor manteniendo la proporción */
+    object-position: center; /* Centrar la imagen dentro del contenedor */
+    margin: 0 0 50px 0rem;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    /*background-color: #5cb85c; /* Color verde para los botones */
+    border-radius: 50%; /* Hacer los botones redondos */
+}
+.carousel-control-prev, .carousel-control-next {
+    filter: invert(100%);
+}
+.carousel-caption {
+    background-color: hsl(var(--hue), var(--sat), 40%);
+    ; /* Fondo semitransparente para el texto */
+    border-radius: 10px; /* Bordes redondeados para el texto */
+    position: relative;
+    width: 77%;
+    height: 28% !important;
+
+}
+.heading, .text{
+  color: white
+}
+@media screen and (max-width: 767px){
+  .carousel-caption{
+    margin-top: 0px !important;
+    display: block !important;
+    position: relative !;
+    width: 70%;
+  }
+  .carousel-item img{
+    margin-bottom: 50px !important;
+  }
+}
+@media screen and (max-width: 320px){
+  .heading{
+    font-size: 1rem !important;
+  }
+  .text{
+    font-size: 0.7rem !important;
+  }
+}

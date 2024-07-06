@@ -6,6 +6,24 @@ function scrollActive(){
     const scrollY = window.scrollY
 
     sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 50;
+        const sectionId = current.getAttribute("id");
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            const link = document.querySelector(`.nav__menu a[href*="${sectionId}"]`);
+            if (link) {
+                link.classList.add("active-link");
+            }
+        } else {
+            const link = document.querySelector(`.nav__menu a[href*="${sectionId}"]`);
+            if (link) {
+                link.classList.remove("active-link");
+            }
+        }
+    });
+
+    /* sections.forEach(current => {
         const sectionHeight = current.offsetHeight,
         sectionTop = current.offsetTop - 50,
         sectionId = current.getAttribute("id");
@@ -15,7 +33,7 @@ function scrollActive(){
         }else{
             document.querySelector(".nav__menu a[href*=" + sectionId + "]").classList.remove("active-link")
         }
-    })
+    }) */
 }
 window.addEventListener("scroll", scrollActive)
 

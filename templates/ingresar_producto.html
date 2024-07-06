@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ingresar_producto.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tabla_productos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+    <title>Registrar</title>
+</head>
+
+<body>
+
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="{{ url_for('index') }}" class="nav__logo">Vet-Pet</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="{{ url_for('index') }}" class="nav__link">
+                            <i class='bx bx-home nav__icon'></i>
+                            <span class="nav__name">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="{{ url_for('contacto') }}" class="nav__link">
+                            <i class='bx bx-envelope nav__icon'></i>
+                            <span class="nav__name">Contacto</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="{{ url_for('index_producto_y_servicio') }}" class="nav__link">
+                            <i class="bx bx-cart nav__icon"></i>
+                            <span class="nav__name">Productos</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="{{ url_for('servicios2') }}" class="nav__link">
+                            <i class='bx bxl-baidu nav__icon'></i>
+                            <span class="nav__name">Servicios</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="{{ url_for('tabla_productos') }}" class="nav__link">
+                            <i class='bx bx-edit nav__icon'></i>
+                            <span class="nav__name">Dashboard</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <img src="{{ url_for('static', filename='img/pet-house.png') }}" alt="" class="nav__img">
+        </nav>
+    </header>
+
+
+    <main class="">
+
+        <section id="dashboard" class="">
+            <div class="container-form-edit">
+
+                <form action=""class="">
+                    <div class="inputBox">
+                        <label for="nombre" >Nombre:</label>
+                        <input class="name" type="text" name="nombre" id="nombre" placeholder="Ingrese producto">
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="precio">Precio:</label>
+                        <input type="number" name="precio" id="precio" placeholder="Ingrese precio">
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="stock">Stock:</label>
+                        <input type="number" name="stock" id="stock" placeholder="Ingrese stock">
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="imagen">Imagen:</label>
+                        <input type="text" name="imagen" id="imagen" placeholder="Ingrese url de imagen">
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="categoria">Elija categoria</label>
+
+                        <div class="select">
+
+                            <select name="categoria" id="categoria">
+                                <option value="" selected disable>Elija categoria</option>
+                                <option value="alimentos">Alimento</option>
+                                <option value="laboratorio">Laboratorio</option>
+                                <option value="articulos_varios">Articulos varios</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="inputBox">
+                        <button class="btn" type="button" onclick="guardar()">Guardar</button>
+                        <a href="{{ url_for('tabla_productos') }}" class="btn" type="button" >Volver</a>
+                    </div>
+
+                    <div class="container-popup">
+                        <div class="popup" id="popup">
+                            <img src="{{ url_for('static', filename='img/checkmark.png') }}" id="popup-img" alt="">
+                            <h1 class="popup-title"></h1>
+                            <p class="popup-message"></p>
+                            <button type="button" id="btnPopup" onclick="closePopup()">OK</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer></footer>
+
+    <script src="{{ url_for('static', filename='js/ingresar_producto.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+
+</html>

@@ -37,7 +37,7 @@ function guardar() {
 
 //FUNCION DE POPUP DE INGRESAR PRODUCTO.(IGUAL QUE EL EDITAR)
 
-function openPopup(success, title, message){
+/* function openPopup(success, title, message){
     let popup = document.getElementById("popup");
     let popupImg = document.getElementById("popup-img");
     let popupTitle = popup.querySelector(".popup-title");
@@ -60,7 +60,48 @@ function openPopup(success, title, message){
     boton.addEventListener("click", function() {
         popup.classList.remove("open-popup");
     //cuando se aprieta el aceptar cierra el popup
-        window.location.href = "./tabla_productos.html";
+        window.location.href = "../templates/tabla_productos.html";
     //Puedes utilizar window.location.href para obtener la URL actual, redirigir a otras páginas
     })  
-};
+}; */
+
+
+function openPopup(success, title, message){
+    let popup = document.getElementById("popup");
+    let popupImg = document.getElementById("popup-img");
+    let popupTitle = popup.querySelector(".popup-title");
+    let popupMessage = popup.querySelector(".popup-message");
+    
+    if (success) {
+        popupImg.src = "{{ url_for('static', filename='img/checkmark.png') }}";
+    } else {
+        popupImg.src = "{{ url_for('static', filename='img/crossmark.png') }}";
+    }
+    
+    popupTitle.textContent = title;
+    popupMessage.textContent = message;
+
+    popup.classList.add("open-popup");
+
+    // Hacer fetch para obtener la URL de tabla_productos
+    fetch('/urls')
+        .then(response => response.json())
+        .then(urls => {
+            const urlTablaProductos = urls.tabla_productos;
+
+            // Agregar el event listener al botón
+            let boton = document.getElementById("btnPopup");
+            boton.addEventListener("click", function() {
+                // Cerrar el popup
+                popup.classList.remove("open-popup");
+                
+                // Redirigir a la URL obtenida
+                window.location.href = urlTablaProductos;
+            });
+        })
+        .catch(error => console.error('Error fetching URLs:', error));
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    
+});

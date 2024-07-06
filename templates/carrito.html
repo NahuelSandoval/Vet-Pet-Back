@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
     <!--Estilos-->
-    <link rel="stylesheet" href="../css/productos.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/productos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
@@ -45,12 +45,12 @@
                 <nav>
                     <ul>
                         <!--Se utilizaron iconos de google fonts-->
-                        <li><a class="boton-menu boton-volver" href="./index_producto_y_servicio.html"><span
+                        <li><a class="boton-menu boton-volver" href="{{ url_for('index_producto_y_servicio') }}"><span
                                     class="material-symbols-outlined">
                                     keyboard_return
                                 </span>Volver a compras</a>
                         </li>
-                        <li><a class="boton-menu boton-carrito active" href="./carrito.html"><span
+                        <li><a class="boton-menu boton-carrito active" href="{{ url_for('carrito') }}"><span
                                     class="material-symbols-outlined">
                                     shopping_cart
                                 </span>Carrito</a>
@@ -114,10 +114,10 @@
     <!-- Script header-->
 
     <!--<script src="./static/js/header.js"></script>-->
-    <script src="../js/menu_producto.js"></script>
-    <script src="../js/header.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/carrito.js"></script>
+    <script src="{{ url_for('static', filename='js/menu_producto.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/header.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/carrito.js') }}"></script>
 </body>
 
 </html>

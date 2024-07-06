@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tabla_productos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Tabla productos</title>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="{{ url_for('index') }}" class="nav__logo">Vet-Pet</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="{{ url_for('index') }}" class="nav__link">
+                            <i class='bx bx-home nav__icon'></i>
+                            <span class="nav__name">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="{{ url_for('contacto') }}" class="nav__link">
+                            <i class='bx bx-envelope nav__icon'></i>
+                            <span class="nav__name">Contacto</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="{{ url_for('index_producto_y_servicio') }}" class="nav__link">
+                            <i class="bx bx-cart nav__icon"></i>
+                            <span class="nav__name">Productos</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="{{ url_for('servicios2') }}" class="nav__link">
+                            <i class='bx bxl-baidu nav__icon'></i>
+                            <span class="nav__name">Servicios</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="{{ url_for('tabla_productos') }}" class="nav__link">
+                            <i class='bx bx-edit nav__icon'></i>
+                            <span class="nav__name">Dashboard</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <img src="{{ url_for('static', filename='img/pet-house.png') }}" alt="" class="nav__img">
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="container-productos container section section__height" id="dashboard">
+            <div id="app" >
+
+                <!-- Botón Nuevo -->
+                <div class="table_header">
+                    <p>Producto detalles</p>
+                    <div>
+                        <a class="add_new" href="{{ url_for('ingresar_producto') }}">+ Agregar producto</a>
+                    </div>
+                </div>
+
+                <section v-if="error">Lo sentimos se produjo un error</section>
+                <section v-else>
+                    <section v-if="cargando">
+                        <p>Cargando .....</p>
+                    </section>
+                    <section v-else>
+                        <div class="table" >
+                            <div class="table_section">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Producto</th>
+                                            <th>Precio</th>
+                                            <th>Stock</th>
+                                            <th>Categoria</th>
+                                            <th>Imagen</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!--{% for producto in productos %}-->
+                                        <tr v-for="producto in productos" :key="producto.id">
+                                            <td>{{ producto.id }}</td>
+                                            <td>{{ producto.nombre }}</td>
+                                            <td>{{ producto.precio }}</td>
+                                            <td>{{ producto.stock }}</td>
+                                            <td>{{ producto.categoria }}</td>
+                                            <td><img :src="producto.imagen" alt=""></td>
+                                            <td>
+
+                                                <!--<a class="boton-delete"  v-on:click="eliminar(producto.id)"><i class='bx bx-trash'></i></a> -->
+                                                <a class="boton-delete" @click="showDeleteConfirmation(producto.id)"><i class='bx bx-trash'></i></a>
+                                                <a class="boton-edit" :href="'{{ url_for('editar_producto') }}?id='+ producto.id+'&nombre=' +producto.nombre+ '&precio='+producto.precio+'&stock='+producto.stock + '&imagen='+producto.imagen +  '&categoria='+producto.categoria"><i class='bx bx-edit'></i></a>
+
+
+                                                <div class="container-popup">
+                                                    <div class="popup" id="popup">
+                                                        <img src="{{ url_for('static', filename='img/checkmark.png') }}" id="popup-img" alt="">
+                                                        <h1 class="popup-title">1</h1>
+                                                        <p class="popup-message">2</p>
+
+                                                        <div class="botones-popup">
+                                                            <button type="button" id="btnPopupNo" @click="closePopup">No</button>
+                                                            <button type="button" class="boton-delete" id="btnPopupSi" @click="confirmDelete">Si</button>
+                                                        </div>
+                                                        <button type="button" id="btnPopupCerrar" @click="closePopup">Cerrar</button>
+
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                        </tr><!--{% endfor %}-->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+
+                </section>
+
+            </div>
+        </section>
+    </main>
+
+    <footer></footer>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="{{ url_for('static', filename='js/tabla_productos.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
