@@ -65,66 +65,33 @@
                     </div>
                 </div>
 
-                <section v-if="error">Lo sentimos se produjo un error</section>
-                <section v-else>
-                    <section v-if="cargando">
-                        <p>Cargando .....</p>
+                <section id="productos">
+                    <section id="error"></section>
+                    <section id="cargando">
+                        <p></p>
                     </section>
-                    <section v-else>
-                        <div class="table" >
-                            <div class="table_section">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Producto</th>
-                                            <th>Precio</th>
-                                            <th>Stock</th>
-                                            <th>Categoria</th>
-                                            <th>Imagen</th>
-                                            <th>Acciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!--{% for producto in productos %}-->
-                                        <tr v-for="producto in productos" :key="producto.id">
-                                            <td>{{ producto.id }}</td>
-                                            <td>{{ producto.nombre }}</td>
-                                            <td>{{ producto.precio }}</td>
-                                            <td>{{ producto.stock }}</td>
-                                            <td>{{ producto.categoria }}</td>
-                                            <td><img :src="producto.imagen" alt=""></td>
-                                            <td>
-
-                                                <!--<a class="boton-delete"  v-on:click="eliminar(producto.id)"><i class='bx bx-trash'></i></a> -->
-                                                <a class="boton-delete" @click="showDeleteConfirmation(producto.id)"><i class='bx bx-trash'></i></a>
-                                                <a class="boton-edit" :href="'{{ url_for('editar_producto') }}?id='+ producto.id+'&nombre=' +producto.nombre+ '&precio='+producto.precio+'&stock='+producto.stock + '&imagen='+producto.imagen +  '&categoria='+producto.categoria"><i class='bx bx-edit'></i></a>
-
-
-                                                <div class="container-popup">
-                                                    <div class="popup" id="popup">
-                                                        <img src="{{ url_for('static', filename='img/checkmark.png') }}" id="popup-img" alt="">
-                                                        <h1 class="popup-title">1</h1>
-                                                        <p class="popup-message">2</p>
-
-                                                        <div class="botones-popup">
-                                                            <button type="button" id="btnPopupNo" @click="closePopup">No</button>
-                                                            <button type="button" class="boton-delete" id="btnPopupSi" @click="confirmDelete">Si</button>
-                                                        </div>
-                                                        <button type="button" id="btnPopupCerrar" @click="closePopup">Cerrar</button>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                        </tr><!--{% endfor %}-->
-                                    </tbody>
-                                </table>
-                            </div>
+                    <div class="table">
+                        <div class="table_section">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Producto</th>
+                                        <th>Precio</th>
+                                        <th>Stock</th>
+                                        <th>Categoria</th>
+                                        <th>Imagen</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabla-productos">
+                                    <!-- Aquí se llenará la tabla con JavaScript -->
+                                </tbody>
+                            </table>
                         </div>
-                    </section>
-
+                    </div>
                 </section>
+
 
             </div>
         </section>
@@ -132,7 +99,6 @@
 
     <footer></footer>
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="{{ url_for('static', filename='js/tabla_productos.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
