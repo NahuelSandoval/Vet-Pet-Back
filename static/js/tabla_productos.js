@@ -66,17 +66,16 @@ function showDeleteConfirmation(id) {
         console.error('Producto no encontrado para eliminar.');
         return;
     }
-
-    if ((`¿Desea eliminar el producto "${productoAEliminar.nombre}"?`)) {
-        eliminarProducto(id);
-    }
+    state.productIdToDelete = id;
+    openPopup('Eliminar producto', `¿Desea eliminar el producto "${productoAEliminar.nombre}"?`, ['No', 'Sí'])
 }
 
 // Función para confirmar eliminación
 function confirmDelete() {
     if (state.productIdToDelete !== null) {
-        eliminar(state.productIdToDelete);
+        eliminarProducto(state.productIdToDelete);
         state.productIdToDelete = null;
+        closePopup()
     }
 }
 
@@ -88,11 +87,11 @@ function eliminarProducto(id) {
         .then(data => {
             console.log('Producto eliminado correctamente:', data);
             obtenerProductos(); // Volver a cargar los productos después de eliminar
-            mostrarPopup(true, '', 'El producto ha sido eliminado.', ['Cerrar']);
+            openPopup(true, '', 'El producto ha sido eliminado.', ['Cerrar']);
         })
         .catch(error => {
             console.error('Error al eliminar producto:', error);
-            mostrarPopup(false, 'Error al eliminar', 'Hubo un problema al intentar eliminar el producto.', ['Cerrar']);
+            openPopup(false, 'Error al eliminar', 'Hubo un problema al intentar eliminar el producto.', ['Cerrar']);
         });
 }
 
@@ -108,7 +107,7 @@ function openPopup(success, title, message, buttons) {
     let popupTitle = popup.querySelector(".popup-title");
     let popupMessage = popup.querySelector(".popup-message");
 
-    popupImg.src = success ? "http://24169codogrupo2vetpet.pythonanywhere.com/static/img/checkmark.png" : "http://24169codogrupo2vetpet.pythonanywhere.com/static/img/crossmark.png";
+    popupImg.src = success ? "" : "http://24169codogrupo2vetpet.pythonanywhere.com/static/img/crossmark.png";
     popupTitle.textContent = title;
     popupMessage.textContent = message;
 

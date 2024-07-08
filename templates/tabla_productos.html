@@ -86,6 +86,21 @@
                                 </thead>
                                 <tbody id="tabla-productos">
                                     <!-- Aquí se llenará la tabla con JavaScript -->
+
+                                    <div class="container-popup">
+                                                    <div class="popup" id="popup">
+                                                        <img src="" id="popup-img" alt="">
+                                                        <h1 class="popup-title">1</h1>
+                                                        <p class="popup-message">2</p>
+
+                                                        <div class="botones-popup">
+                                                            <button type="button" id="btnPopupNo" onclick="closePopup()">No</button>
+                                                            <button type="button" class="boton-delete" id="btnPopupSi" onclick="confirmDelete()">Si</button>
+                                                        </div>
+                                                        <button type="button" id="btnPopupCerrar" onclick="closePopup()">Cerrar</button>
+
+                                                    </div>
+                                                </div>
                                 </tbody>
                             </table>
                         </div>
