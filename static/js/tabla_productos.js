@@ -66,7 +66,7 @@ const { createApp } = Vue;
             let popupTitle = popup.querySelector(".popup-title");
             let popupMessage = popup.querySelector(".popup-message");
             
-            popupImg.src = success ? "../img/checkmark.png" : "../img/crossmark.png";
+            popupImg.src = success ? "http://24169codogrupo2vetpet.pythonanywhere.com/static/img/checkmark.png" : "http://24169codogrupo2vetpet.pythonanywhere.com/static/img/crossmark.png";
             popupTitle.textContent = title;
             popupMessage.textContent = message;
 

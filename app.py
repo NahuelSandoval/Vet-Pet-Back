@@ -128,9 +128,6 @@ def tabla_productos():
         app.logger.error(f"Error al renderizar tabla_productos.html: {str(e)}")
         return jsonify({'error': 'Error al cargar la página: ' + str(e)}), 500
 
-if __name__ == "__main__":
-    app.run(debug=True)
-
 @app.route('/urls')
 def get_urls():
     urls = {

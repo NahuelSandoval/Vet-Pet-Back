@@ -55,10 +55,10 @@ function openPopup(success, title, message){
     let popupMessage = popup.querySelector(".popup-message");
     //si se edita aparece la ruta de la imagen checkmark
     if (success) {
-        popupImg.src = "../img/checkmark.png"
+        popupImg.src = "http://24169codogrupo2vetpet.pythonanywhere.com/static/img/checkmark.png"
     //si es false aparece la ruta de la imagen crossmark
     } else {
-        popupImg.src = "../img/crossmark.png"
+        popupImg.src = "http://24169codogrupo2vetpet.pythonanywhere.com/static/img/crossmark.png"
     }
     //aca defino los parametros y les agrego contenido
     popupTitle.textContent = title;

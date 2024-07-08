@@ -73,9 +73,9 @@ function openPopup(success, title, message){
     let popupMessage = popup.querySelector(".popup-message");
     
     if (success) {
-        popupImg.src = "{{ url_for('static', filename='img/checkmark.png') }}";
+        popupImg.src = "http://24169codogrupo2vetpet.pythonanywhere.com/static/img/checkmark.png";
     } else {
-        popupImg.src = "{{ url_for('static', filename='img/crossmark.png') }}";
+        popupImg.src = "http://24169codogrupo2vetpet.pythonanywhere.com/static/img/crossmark.png";
     }
     
     popupTitle.textContent = title;
