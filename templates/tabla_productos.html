@@ -7,6 +7,7 @@
     <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/tabla_productos.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Tabla productos</title>
 </head>
 <body>
@@ -53,7 +54,6 @@
     </header>
 
     <main>
-
         <section class="container-productos container section section__height" id="dashboard">
             <div id="app" >
 
@@ -86,24 +86,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!--{% for producto in productos %}-->
                                         <tr v-for="producto in productos" :key="producto.id">
-                                            <td>{{ producto.id }}</td>
-                                            <td>{{ producto.nombre }}</td>
-                                            <td>{{ producto.precio }}</td>
-                                            <td>{{ producto.stock }}</td>
-                                            <td>{{ producto.categoria }}</td>
-                                            <td><img :src="producto.imagen" alt=""></td>
+                                            <td v-text="producto.id"></td>
+                                            <td v-text="producto.nombre"></td>
+                                            <td v-text="producto.precio"></td>
+                                            <td v-text="producto.stock"></td>
+                                            <td v-text="producto.categoria"></td>
+                                            <td>
+                                                <img :src="producto.imagen" alt="">
+                                            </td>
                                             <td>
 
                                                 <!--<a class="boton-delete"  v-on:click="eliminar(producto.id)"><i class='bx bx-trash'></i></a> -->
-                                                <a class="boton-delete" @click="showDeleteConfirmation(producto.id)"><i class='bx bx-trash'></i></a>
+                                                <a class="boton-delete" @click="showDeleteConfirmation(producto.id)"><i class='bx bx-trash'></i></a> 
                                                 <a class="boton-edit" :href="'{{ url_for('editar_producto') }}?id='+ producto.id+'&nombre=' +producto.nombre+ '&precio='+producto.precio+'&stock='+producto.stock + '&imagen='+producto.imagen +  '&categoria='+producto.categoria"><i class='bx bx-edit'></i></a>
 
 
                                                 <div class="container-popup">
                                                     <div class="popup" id="popup">
-                                                        <img src="{{ url_for('static', filename='img/checkmark.png') }}" id="popup-img" alt="">
+                                                        <img src="../img/checkmark.png" id="popup-img" alt="">
                                                         <h1 class="popup-title">1</h1>
                                                         <p class="popup-message">2</p>
 
@@ -116,14 +117,14 @@
                                                     </div>
                                                 </div>
                                             </td>
-
-                                        </tr><!--{% endfor %}-->
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </section>
 
+                    
                 </section>
 
             </div>
