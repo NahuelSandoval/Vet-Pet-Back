@@ -67,7 +67,7 @@ function showDeleteConfirmation(id) {
         return;
     }
 
-    if (confirm(`¿Desea eliminar el producto "${productoAEliminar.nombre}"?`)) {
+    if ((`¿Desea eliminar el producto "${productoAEliminar.nombre}"?`)) {
         eliminarProducto(id);
     }
 }
